@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef TRANSLATOR_H
 #define TRANSLATOR_H
 
@@ -12,14 +10,13 @@ using namespace std;
 class Translator
 {
 public:
-	Translator(bool use_lite_alphabet);
-	~Translator();
+    Translator(bool use_lite_alphabet);
+    ~Translator();
 
-	string leet(const string& str);
+    string leet(const string& str);
 
 private:
-	string m_alphabet[256];
+    string m_alphabet[256];
 };
 
-#endif
-
+#endif // TRANSLATOR_H
