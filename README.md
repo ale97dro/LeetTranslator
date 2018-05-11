@@ -8,14 +8,14 @@ This software can work in two different modes:
 
 The first mode use a reduced alphabet because it's impossibile to create a good translation without use some characters that aren't allowed by OS (for example, '/', '|', '\',).
 
-<br/>------------------------------------------<br/>
+<br/><br/>
 
 <h1>Compile command</h1>
 
 If you want to compile the solution, here's the command:
 	g++ -o leettranslator main.cpp translator.cpp utility.cpp
 	
-<br/>------------------------------------------<br/>
+<br/><br/>
 
 <h1>Execution command</h1>
 <ul>
