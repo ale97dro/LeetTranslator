@@ -1,4 +1,4 @@
-LeetTranslator 0.9
+<h1>LeetTranslator 0.9</h1>
 
 This software can work in two different modes: 
 <ul>
