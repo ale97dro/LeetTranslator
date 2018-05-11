@@ -13,7 +13,7 @@ The first mode use a reduced alphabet because it's impossibile to create a good 
 <h1>Compile command</h1>
 
 If you want to compile the solution, here's the command:<br/>
-	g++ -o leettranslator main.cpp translator.cpp utility.cpp
+	<b>g++ -o leettranslator main.cpp translator.cpp utility.cpp</b>
 	
 <br/><br/>
 
