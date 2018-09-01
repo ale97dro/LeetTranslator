@@ -8,15 +8,6 @@ The Translator use two alphabet:
 	<li>Complete leet: use all characters and symbols</li>
 </ul>
 
-
-The software can work in two different modes: 
-<ul>
-	<li>Rename file: you can translate the name of a file</li>
-	<li>Translate some text that you can write via command line and save it into a .txt file</li>
-</ul>
-
-The first mode use a reduced alphabet because it's impossibile to create a good translation without use some characters that aren't allowed by OS (for example, '/', '|', '\',).
-
 <br/>
 
 <h1>GUI Project</h1>
@@ -31,7 +22,15 @@ You can also lunch only the .exe file in the solution to run the Translator.
 
 <br/>
 
-<h1>Command-line versione</h1>
+<h1>Command-line version</h1>
+
+The software can work in two different modes: 
+<ul>
+	<li>Rename file: you can translate the name of a file</li>
+	<li>Translate some text that you can write via command line and save it into a .txt file</li>
+</ul>
+
+The first mode use a reduced alphabet because it's impossibile to create a good translation without use some characters that aren't allowed by OS (for example, '/', '|', '\',).
 
 <h2>Compile command</h2>
 
