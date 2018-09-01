@@ -1,0 +1,15 @@
+C:\Users\alex2_000\Desktop\LeetTranslatorGrafica\LeetTranslatorGrafica\bin\Debug\LeetTranslatorGrafica.exe.config
+C:\Users\alex2_000\Desktop\LeetTranslatorGrafica\LeetTranslatorGrafica\bin\Debug\LeetTranslatorGrafica.exe
+C:\Users\alex2_000\Desktop\LeetTranslatorGrafica\LeetTranslatorGrafica\bin\Debug\LeetTranslatorGrafica.pdb
+C:\Users\alex2_000\Desktop\LeetTranslatorGrafica\LeetTranslatorGrafica\obj\Debug\LeetTranslatorGrafica.csprojResolveAssemblyReference.cache
+C:\Users\alex2_000\Desktop\LeetTranslatorGrafica\LeetTranslatorGrafica\obj\Debug\MainWindow.g.cs
+C:\Users\alex2_000\Desktop\LeetTranslatorGrafica\LeetTranslatorGrafica\obj\Debug\App.g.cs
+C:\Users\alex2_000\Desktop\LeetTranslatorGrafica\LeetTranslatorGrafica\obj\Debug\LeetTranslatorGrafica_MarkupCompile.cache
+C:\Users\alex2_000\Desktop\LeetTranslatorGrafica\LeetTranslatorGrafica\obj\Debug\LeetTranslatorGrafica_MarkupCompile.lref
+C:\Users\alex2_000\Desktop\LeetTranslatorGrafica\LeetTranslatorGrafica\obj\Debug\MainWindow.baml
+C:\Users\alex2_000\Desktop\LeetTranslatorGrafica\LeetTranslatorGrafica\obj\Debug\LeetTranslatorGrafica.g.resources
+C:\Users\alex2_000\Desktop\LeetTranslatorGrafica\LeetTranslatorGrafica\obj\Debug\LeetTranslatorGrafica.Properties.Resources.resources
+C:\Users\alex2_000\Desktop\LeetTranslatorGrafica\LeetTranslatorGrafica\obj\Debug\LeetTranslatorGrafica.csproj.GenerateResource.Cache
+C:\Users\alex2_000\Desktop\LeetTranslatorGrafica\LeetTranslatorGrafica\obj\Debug\LeetTranslatorGrafica.csproj.CoreCompileInputs.cache
+C:\Users\alex2_000\Desktop\LeetTranslatorGrafica\LeetTranslatorGrafica\obj\Debug\LeetTranslatorGrafica.exe
+C:\Users\alex2_000\Desktop\LeetTranslatorGrafica\LeetTranslatorGrafica\obj\Debug\LeetTranslatorGrafica.pdb
