@@ -32,6 +32,8 @@ The software can work in two different modes:
 
 The first mode use a reduced alphabet because it's impossibile to create a good translation without use some characters that aren't allowed by OS (for example, '/', '|', '\',).
 
+<br/>
+
 <h2>Compile command</h2>
 
 If you want to compile the solution, here's the command:<br/><br/>
