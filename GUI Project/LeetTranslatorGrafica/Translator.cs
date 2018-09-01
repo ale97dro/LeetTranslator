@@ -16,7 +16,7 @@ namespace LeetTranslatorGrafica
 
         static Translator()
         {
-            //inizializzo alfabeti
+            //initialize alphabets
 
             light_leet_alphabet = new string[N_CHAR];
             complete_leet_alphabet = new string[N_CHAR];
@@ -57,6 +57,7 @@ namespace LeetTranslatorGrafica
             complete_leet_alphabet[88] = complete_leet_alphabet[120] = "><"; //X
         }
 
+        //Use symbol that are admit by Windows in files' name
         public static string LightLeet(string text)
         {
             StringBuilder s = new StringBuilder();
@@ -67,6 +68,7 @@ namespace LeetTranslatorGrafica
             return s.ToString();
         }
 
+        //Use every type of character
         public static string CompleteLeet(string text)
         {
             StringBuilder s = new StringBuilder();
