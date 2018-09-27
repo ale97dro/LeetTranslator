@@ -65,7 +65,7 @@ namespace LeetTranslatorGrafica
         /// <summary>
         /// This alphabet uses symbols that are admitted by Windows in files' name
         /// </summary>
-        /// <param name="text"></param>
+        /// <param name="text">Text you want to translate</param>
         /// <returns></returns>
         public static string LightLeet(string text)
         {
@@ -80,7 +80,7 @@ namespace LeetTranslatorGrafica
         /// <summary>
         /// This alphabet can use every symbols
         /// </summary>
-        /// <param name="text"></param>
+        /// <param name="text">Text you want to translate</param>
         /// <returns></returns>
         public static string CompleteLeet(string text)
         {
