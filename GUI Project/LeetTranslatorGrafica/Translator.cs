@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace LeetTranslatorGrafica
 {
+    /// <summary>
+    /// Class that represents a translator and perform translations
+    /// </summary>
     class Translator
     {
         private const int N_CHAR= 256;
@@ -14,10 +17,12 @@ namespace LeetTranslatorGrafica
         private static string[] light_leet_alphabet;
         private static string[] complete_leet_alphabet;
 
+        /// <summary>
+        /// Static initialize of the alphabet
+        /// It has got two alphabet: light and complete
+        /// </summary>
         static Translator()
         {
-            //initialize alphabets
-
             light_leet_alphabet = new string[N_CHAR];
             complete_leet_alphabet = new string[N_CHAR];
 
@@ -57,7 +62,11 @@ namespace LeetTranslatorGrafica
             complete_leet_alphabet[88] = complete_leet_alphabet[120] = "><"; //X
         }
 
-        //Use symbol that are admit by Windows in files' name
+        /// <summary>
+        /// This alphabet uses symbols that are admitted by Windows in files' name
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static string LightLeet(string text)
         {
             StringBuilder s = new StringBuilder();
@@ -68,7 +77,11 @@ namespace LeetTranslatorGrafica
             return s.ToString();
         }
 
-        //Use every type of character
+        /// <summary>
+        /// This alphabet can use every symbols
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static string CompleteLeet(string text)
         {
             StringBuilder s = new StringBuilder();
@@ -79,20 +92,11 @@ namespace LeetTranslatorGrafica
             return s.ToString();
         }
 
-        public static void TranslateOnFile(string text)
-        {
-            StreamWriter wr = null;
-
-            try
-            {
-                wr.Write(text);
-            }
-            finally
-            {
-                wr.Close();
-            }
-        }
-
+        /// <summary>
+        /// Write on file the translation
+        /// </summary>
+        /// <param name="plain_text">Text you want to translate</param>
+        /// <param name="translator">Function that allow you to translate</param>
         public static void TranslateOnFile(string plain_text, Func<string, string> translator)
         {
             StreamWriter wr = null;
@@ -105,6 +109,14 @@ namespace LeetTranslatorGrafica
             {
                 wr.Close();
             }
+        }
+
+        /// <summary>
+        /// Private constructor. This is a static class
+        /// </summary>
+        private Translator()
+        {
+
         }
     }
 }

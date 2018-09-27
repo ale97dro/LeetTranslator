@@ -25,6 +25,11 @@ namespace LeetTranslatorGrafica
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Start the translation process
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void translateBtn_Click(object sender, RoutedEventArgs e)
         {
             string text = new TextRange(translateTxt.Document.ContentStart, translateTxt.Document.ContentEnd).Text;
@@ -54,17 +59,32 @@ namespace LeetTranslatorGrafica
             }
         }
 
+        /// <summary>
+        /// Perform when the window is loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void window_Loaded_1(object sender, RoutedEventArgs e)
         {
             clearBtn_Click(null, null);
         }
 
+        /// <summary>
+        /// Clean text field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void clearBtn_Click(object sender, RoutedEventArgs e)
         {
             translateTxt.Document.Blocks.Clear();
             translatedTxt.Document.Blocks.Clear();
         }
 
+        /// <summary>
+        /// Show info about this software
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void infoBtn_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Leet Translator Graphics - Alessandro Bianchi", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
