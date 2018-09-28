@@ -89,5 +89,10 @@ namespace LeetTranslatorGrafica
         {
             MessageBox.Show("Leet Translator Graphics - Alessandro Bianchi", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void settingsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Settings");
+        }
     }
 }
