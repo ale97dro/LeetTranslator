@@ -64,9 +64,14 @@ namespace LeetTranslatorGrafica
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void window_Loaded_1(object sender, RoutedEventArgs e)
+        private void window_Loaded(object sender, RoutedEventArgs e)
         {
             clearBtn_Click(null, null);
+
+            if (Properties.Settings.Default.DarkTheme)
+                SetDarkTheme();
+            else
+                SetLightTheme();
         }
 
         /// <summary>
@@ -90,9 +95,87 @@ namespace LeetTranslatorGrafica
             MessageBox.Show("Leet Translator Graphics - Alessandro Bianchi", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
+        /// <summary>
+        /// Open new settings window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void settingsBtn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Settings");
+            bool dark_theme = Properties.Settings.Default.DarkTheme;
+
+            new Settings().ShowDialog();
+
+            if(dark_theme!=Properties.Settings.Default.DarkTheme)
+            {
+                if (Properties.Settings.Default.DarkTheme)
+                    SetDarkTheme();
+                else
+                    SetLightTheme();
+            }
+        }
+
+        /// <summary>
+        /// Set the color of the GUI according Dark Theme rules
+        /// </summary>
+        private void SetDarkTheme()
+        {
+            SetTheme(Theme.DARK_TEXT, Theme.DARK_BACKGROUND, Theme.DARK_CONTROLS);
+        }
+
+        /// <summary>
+        /// Set the color of the GUI according Light Theme rules
+        /// </summary>
+        private void SetLightTheme()
+        {
+            SetTheme(Theme.LIGHT_TEXT, Theme.LIGHT_BACKGROUND, Theme.LIGHT_CONTROLS);
+        }
+
+        /// <summary>
+        /// Set the color of the GUI according to the parameter
+        /// </summary>
+        /// <param name="text">Color of text</param>
+        /// <param name="background">Color of window background</param>
+        /// <param name="controls">Color of controls background (e.g.,  buttons or text form)</param>
+        private void SetTheme(string text, string background, string controls)
+        {
+            //Use this brush to recolor theme
+            Brush brush;
+
+            //Create brush for background
+            brush = Utility.CreateBrush(background);
+
+            principalGrid.Background = brush;
+
+            //Create brush for controls
+            brush = Utility.CreateBrush(controls);
+
+            //Button
+            translateBtn.Background = brush;
+            clearBtn.Background = brush;
+            settingsBtn.Background = brush;
+            infoBtn.Background = brush;
+
+            //Text form
+            translateTxt.Background = brush;
+            translatedTxt.Background = brush;
+
+            //Create brush for text
+            brush = Utility.CreateBrush(text);
+
+            //Button and general controls
+            titleLab.Foreground = brush;
+            light_leetRadio.Foreground = brush;
+            complete_leetRadio.Foreground = brush;
+            write_on_fileCheck.Foreground = brush;
+            translateBtn.Foreground = brush;
+            clearBtn.Foreground = brush;
+            infoBtn.Foreground = brush;
+            settingsBtn.Foreground = brush;
+
+            //Text form
+            translateTxt.Foreground = brush;
+            translatedTxt.Foreground = brush;
         }
     }
 }

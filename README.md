@@ -17,6 +17,8 @@ The GUI application is less powerfull than the command-line: it doesn't allow yo
 If you want modify the GUI, you can open the project with your version of Visual Studio (I use VS 2017 Community).<br/>
 You can also lunch only the .exe file in the solution to run the Translator.
 
+At this moment, you can choose between two different theme: Light and Dark.
+
 ![2018-05-21](https://user-images.githubusercontent.com/25732860/40309278-366426ee-5d09-11e8-85f5-3c5598e2f6b8.png)
 
 

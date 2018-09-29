@@ -5,33 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LeetTranslatorGrafica"
         mc:Ignorable="d"
-        Title="LeetTranslator" Height="383.368" Width="674.754" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="window_Loaded_1">
+        Title="LeetTranslator" Height="383.368" Width="674.754" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="window_Loaded">
 
-    <Grid>
-        <Button x:Name="translateBtn" Content="Translate" HorizontalAlignment="Left" Margin="320,47,0,0" Width="75" Height="20" VerticalAlignment="Top" Click="translateBtn_Click"/>
-        <RichTextBox x:Name="translateTxt" HorizontalAlignment="Left" Margin="10,79,0,10" Width="282">
+    <Grid x:Name="principalGrid" Background="#FFE4E3E3">
+        <Button x:Name="translateBtn" Content="Translate" HorizontalAlignment="Left" Margin="320,47,0,0" Width="75" Height="20" VerticalAlignment="Top" Click="translateBtn_Click" Background="White"/>
+        <RichTextBox x:Name="translateTxt" HorizontalAlignment="Left" Margin="10,79,0,10" Width="282" FontSize="14">
             <FlowDocument>
                 <Paragraph>
                     <Run Text="RichTextBox"/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <Label Content="LeetTranslator" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="titleLab" Content="LeetTranslator" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
 
 
-        <RichTextBox x:Name="translatedTxt" Margin="0,79,10,10" IsReadOnly="True" Width="282" HorizontalAlignment="Right">
+        <RichTextBox x:Name="translatedTxt" Margin="0,79,10,10" IsReadOnly="True" Width="282" HorizontalAlignment="Right" FontSize="14">
             <FlowDocument>
                 <Paragraph>
                     <Run Text="RichTextBox"/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <Button x:Name="infoBtn" Content="Info" Height="19" Margin="584,47,10,0" VerticalAlignment="Top" Click="infoBtn_Click"/>
-        <Button x:Name="clearBtn" Content="Clear" HorizontalAlignment="Left" Margin="400,47,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click"/>
+        <Button x:Name="infoBtn" Content="Info" Height="19" Margin="584,47,10,0" VerticalAlignment="Top" Click="infoBtn_Click" Background="White"/>
+        <Button x:Name="clearBtn" Content="Clear" HorizontalAlignment="Left" Margin="400,47,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Background="White"/>
         <RadioButton x:Name="light_leetRadio" Content="Light Leet" Margin="10,50,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="LeetType" HorizontalAlignment="Left" Width="71"/>
         <RadioButton x:Name="complete_leetRadio" Content="Complete Leet" Margin="86,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="96" GroupName="LeetType"/>
         <CheckBox x:Name="write_on_fileCheck" Content="Write on file" HorizontalAlignment="Left" Margin="208,50,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="settingsBtn" Content="Settings" Height="19" Margin="584,20,10,0" VerticalAlignment="Top" Click="settingsBtn_Click"/>
+        <Button x:Name="settingsBtn" Content="Settings" Height="19" Margin="584,20,10,0" VerticalAlignment="Top" Click="settingsBtn_Click" Background="White"/>
 
     </Grid>
 </Window>

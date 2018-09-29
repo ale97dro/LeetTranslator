@@ -10,7 +10,7 @@ namespace LeetTranslatorGrafica
     /// <summary>
     /// Class that represents a translator and perform translations
     /// </summary>
-    class Translator
+    public class Translator
     {
         private const int N_CHAR= 256;
 
