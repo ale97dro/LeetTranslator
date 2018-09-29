@@ -1,6 +1,8 @@
-<h1>LeetTranslator 0.9</h1>
+<h1>LeetTranslator 0.9 - LEGACY</h1>
 
 In this repository you'll find two different version of the Translator: the first is written in C++ and has got only command-line interface, while the second is C# version with also a small GUI.
+
+LEGACY: you will find the initial version of GUI project, in case you want only a simple client without any decoration.
 
 The Translator use two alphabet:
 <ul>
