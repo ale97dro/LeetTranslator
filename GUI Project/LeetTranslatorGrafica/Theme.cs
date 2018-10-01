@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace LeetTranslatorGrafica
 {
     /// <summary>
-    /// Contains information about themes and colors
+    /// Contains information about themes and colors.
+    /// Provide tools to manage colors and brushes.
     /// </summary>
     class Theme
     {
@@ -18,5 +19,24 @@ namespace LeetTranslatorGrafica
         public const string DARK_TEXT = "#FFE06C2A";
         public const string DARK_BACKGROUND = "#FF232020";
         public const string DARK_CONTROLS = "#FF5D5656";
+
+        /// <summary>
+        /// Create color to assign to color properites of WPF controls(e.g., Background)
+        /// </summary>
+        /// <param name="color">Initial color to create brush</param>
+        /// <returns>Color brush requested</returns>
+        public static System.Windows.Media.Brush CreateBrush(string color)
+        {
+            var converter = new System.Windows.Media.BrushConverter();
+
+            try
+            {
+                return (System.Windows.Media.Brush)converter.ConvertFrom(color);
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

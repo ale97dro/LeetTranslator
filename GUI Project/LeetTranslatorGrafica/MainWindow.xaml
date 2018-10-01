@@ -8,6 +8,7 @@
         Title="LeetTranslator" Height="383.368" Width="674.754" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="window_Loaded">
 
     <Grid x:Name="principalGrid" Background="#FFE4E3E3">
+        <Label x:Name="titleLab" Content="LeetTranslator" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <Button x:Name="translateBtn" Content="Translate" HorizontalAlignment="Left" Margin="320,47,0,0" Width="75" Height="20" VerticalAlignment="Top" Click="translateBtn_Click" Background="White"/>
         <RichTextBox x:Name="translateTxt" HorizontalAlignment="Left" Margin="10,79,0,10" Width="282" FontSize="14">
             <FlowDocument>
@@ -16,7 +17,6 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <Label x:Name="titleLab" Content="LeetTranslator" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
 
 
         <RichTextBox x:Name="translatedTxt" Margin="0,79,10,10" IsReadOnly="True" Width="282" HorizontalAlignment="Right" FontSize="14">

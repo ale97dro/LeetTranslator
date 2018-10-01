@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -143,12 +144,12 @@ namespace LeetTranslatorGrafica
             Brush brush;
 
             //Create brush for background
-            brush = Utility.CreateBrush(background);
+            brush = Theme.CreateBrush(background);
 
             principalGrid.Background = brush;
 
             //Create brush for controls
-            brush = Utility.CreateBrush(controls);
+            brush = Theme.CreateBrush(controls);
 
             //Button
             translateBtn.Background = brush;
@@ -161,7 +162,7 @@ namespace LeetTranslatorGrafica
             translatedTxt.Background = brush;
 
             //Create brush for text
-            brush = Utility.CreateBrush(text);
+            brush = Theme.CreateBrush(text);
 
             //Button and general controls
             titleLab.Foreground = brush;

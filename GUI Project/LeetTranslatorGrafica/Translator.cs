@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,8 @@ using System.Threading.Tasks;
 namespace LeetTranslatorGrafica
 {
     /// <summary>
-    /// Class that represents a translator and perform translations
+    /// Class that represents a translator and perform translations.
+    /// It is a static class that you can't initialize.
     /// </summary>
     public class Translator
     {
@@ -16,9 +18,31 @@ namespace LeetTranslatorGrafica
 
         private static string[] light_leet_alphabet;
         private static string[] complete_leet_alphabet;
+        
+        private const string FILE_NAME = "translateText.txt";
 
         /// <summary>
-        /// Static initialize of the alphabet
+        /// Private constructor. This is a static class
+        /// </summary>
+        private Translator()
+        {
+
+        }
+
+        /// <summary>
+        /// Property to get FILE_NAME value.
+        /// Only GET property: FILE_NAME is a constant  
+        /// </summary>
+        public static string FileName
+        {
+            get
+            {
+                return FILE_NAME;
+            }
+        }
+
+        /// <summary>
+        /// Static initialization of the alphabet
         /// It has got two alphabet: light and complete
         /// </summary>
         static Translator()
@@ -102,8 +126,10 @@ namespace LeetTranslatorGrafica
             StreamWriter wr = null;
             try
             {
-                wr = new StreamWriter("translateText.txt");
+                wr = new StreamWriter(FILE_NAME);
                 wr.Write(translator(plain_text));
+
+                OpenTranslation();
             }
             finally
             {
@@ -112,11 +138,13 @@ namespace LeetTranslatorGrafica
         }
 
         /// <summary>
-        /// Private constructor. This is a static class
+        /// Open file where the translator write its result
+        /// 
+        /// This method (signature and body) can change different times
         /// </summary>
-        private Translator()
+        private static void OpenTranslation()
         {
-
+            Process.Start(FILE_NAME);
         }
     }
 }
