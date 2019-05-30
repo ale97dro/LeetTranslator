@@ -15,6 +15,9 @@ namespace LeetTranslatorGrafica.Models
         {
             //todo: add the alphabets to display to gui
             alphabets = new List<Alphabet>();
+
+            alphabets.Add(AlphabetFactory.LightLeet());
+            alphabets.Add(AlphabetFactory.CompleteLeet());
         }
 
         public IList<Alphabet> Alphabets => alphabets;

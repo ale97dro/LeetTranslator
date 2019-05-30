@@ -24,7 +24,7 @@ namespace LeetTranslatorGrafica.Models
             //    alphabet[i] = Convert.ToChar(i).ToString();
         }
 
-        public virtual string Translate(string plainText)
+        public string Translate(string plainText)
         {
             StringBuilder s = new StringBuilder();
 

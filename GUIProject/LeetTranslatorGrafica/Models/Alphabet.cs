@@ -8,14 +8,22 @@ namespace LeetTranslatorGrafica.Models
 {
     public class Alphabet
     {
+        private string name;
         private List<Character> characters;
 
-        public Alphabet(List<Character> characters)
+        private Alphabet(string name)
+        {
+            this.name = name;
+        }
+
+        public Alphabet(string name, List<Character> characters)
+            : this(name)
         {
             this.characters = characters;
         }
 
-        public Alphabet(Character[] characters)
+        public Alphabet(string name, Character[] characters)
+            : this(name)
         {
             this.characters = characters.ToList();
         }
@@ -25,6 +33,7 @@ namespace LeetTranslatorGrafica.Models
             return characters[index];
         }
 
+        public string Name => name;
         public List<Character> Characters => new List<Character>(characters);
     }
 }

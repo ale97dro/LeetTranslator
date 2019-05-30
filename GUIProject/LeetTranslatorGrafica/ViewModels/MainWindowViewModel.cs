@@ -9,20 +9,16 @@ namespace LeetTranslatorGrafica.ViewModels
     public class MainWindowViewModel : BaseViewModel
     {
         private Models.ITranslationService tranlationService;
-        //public Command.RelayCommand TranslateCommand { get; private set; }
 
         private bool writeOnFile;
-        private bool lightLeet;
-        private bool completeLeet;
+
+        private Models.Alphabet selectedAlphabet;
 
         public MainWindowViewModel(Models.ITranslationService service)
         {
             this.tranlationService = service;
-
+            this.selectedAlphabet = service.Alphabets[0];
             writeOnFile = false;
-            lightLeet = true;
-            completeLeet = false;
-            //TranslateCommand = new Command.RelayCommand(TranslateMethod, TranslateCanExec);
         }
 
 
@@ -40,62 +36,27 @@ namespace LeetTranslatorGrafica.ViewModels
             }
         }
 
-        public bool LightLeet
-        {
-            get
-            {
-                return lightLeet;
-            }
-
-            set
-            {
-                lightLeet = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        public bool CompleteLeet
-        {
-            get
-            {
-                return completeLeet;
-            }
-
-            set
-            {
-                completeLeet = value;
-                NotifyPropertyChanged();
-            }
-        }
-
         public IList<Models.Alphabet> Alphabets
         {
-            get
-            {
-                return tranlationService.Alphabets;
-            }
+            get { return tranlationService.Alphabets; }
         }
 
+        public Models.Alphabet SelectedAlphabet
+        {
+            get { return selectedAlphabet; }
 
-        //private void TranslateMethod(object param)
-        //{
-        //    Translate(null, null, true);
-        //}
+            set
+            {
+                if (selectedAlphabet == null) return;
 
-        //private bool TranslateCanExec(object param)
-        //{
-        //    return true;
-        //}
+                selectedAlphabet = value;
+                //NotifyPropertyChanged();
+            }
+        }
 
         public string Translate(string plainText)
         {
-            Models.ITranslate trans = null;
-
-            //todo
-            if (lightLeet)
-                trans = new Models.LeetTranslator(Models.AlphabetFactory.LightLeet());
-            else
-                trans = new Models.LeetTranslator(Models.AlphabetFactory.CompleteLeet());
+            Models.ITranslate trans = new Models.LeetTranslator(selectedAlphabet);
 
             return tranlationService.ExecuteService(plainText, trans, writeOnFile);
         }

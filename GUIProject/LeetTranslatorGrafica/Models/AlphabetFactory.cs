@@ -10,6 +10,8 @@ namespace LeetTranslatorGrafica.Models
     {
         public const int N_CHAR = 256;
 
+        //todo: transform into flyweight
+
         public static Alphabet LightLeet()
         {
             Character[] alphabet = InitializeAlphabet();
@@ -25,7 +27,7 @@ namespace LeetTranslatorGrafica.Models
             alphabet[84].LeetCharacter = alphabet[116].LeetCharacter = "7";
             alphabet[85].LeetCharacter = alphabet[117].LeetCharacter = "(_)";
 
-            return new Alphabet(alphabet);
+            return new Alphabet("LightLeet", alphabet);
         }
 
         public static Alphabet CompleteLeet()
@@ -50,7 +52,7 @@ namespace LeetTranslatorGrafica.Models
             alphabet[87].LeetCharacter = alphabet[119].LeetCharacter = "VV"; //W
             alphabet[88].LeetCharacter = alphabet[120].LeetCharacter = "><"; //X
 
-            return new Alphabet(alphabet);
+            return new Alphabet("CompleteLeet", alphabet);
         }
 
         private static Character[] InitializeAlphabet()
