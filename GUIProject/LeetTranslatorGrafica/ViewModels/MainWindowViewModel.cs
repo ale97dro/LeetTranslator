@@ -88,7 +88,6 @@ namespace LeetTranslatorGrafica.ViewModels
             else
                 trans = new Models.CompleteLeetTranslator();
                 
-
             return tranlationService.ExecuteService(plainText, trans, writeOnFile);
         }
     }

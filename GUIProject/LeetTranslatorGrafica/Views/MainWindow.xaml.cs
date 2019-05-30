@@ -54,6 +54,12 @@ namespace LeetTranslatorGrafica.Views
                 SetDarkTheme();
             else
                 SetLightTheme();
+
+            //List<string> alpha = new List<string>();
+
+            //alpha.Add("Light");
+            //alpha.Add("Complete");
+            //alphabetCombo.ItemsSource = alpha;
         }
 
         /// <summary>
@@ -74,6 +80,7 @@ namespace LeetTranslatorGrafica.Views
         /// <param name="e"></param>
         private void infoBtn_Click(object sender, RoutedEventArgs e)
         {
+            //todo: new control
             MessageBox.Show("Leet Translator Graphics - Alessandro Bianchi", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -84,6 +91,7 @@ namespace LeetTranslatorGrafica.Views
         /// <param name="e"></param>
         private void settingsBtn_Click(object sender, RoutedEventArgs e)
         {
+            //todo: new control
             bool dark_theme = Properties.Settings.Default.DarkTheme;
 
             new Settings().ShowDialog();
@@ -129,35 +137,42 @@ namespace LeetTranslatorGrafica.Views
 
             principalGrid.Background = brush;
 
+            mainMenu.Background = brush;
+
             //Create brush for controls
             brush = Theme.CreateBrush(controls);
 
             //Button
             translateBtn.Background = brush;
             clearBtn.Background = brush;
-            settingsBtn.Background = brush;
-            infoBtn.Background = brush;
+            //settingsBtn.Background = brush;
+            //infoBtn.Background = brush;
 
             //Text form
             translateTxt.Background = brush;
             translatedTxt.Background = brush;
 
+            
+
             //Create brush for text
             brush = Theme.CreateBrush(text);
 
             //Button and general controls
-            titleLab.Foreground = brush;
+            //titleLab.Foreground = brush;
             light_leetRadio.Foreground = brush;
             complete_leetRadio.Foreground = brush;
             write_on_fileCheck.Foreground = brush;
             translateBtn.Foreground = brush;
             clearBtn.Foreground = brush;
-            infoBtn.Foreground = brush;
-            settingsBtn.Foreground = brush;
+            //infoBtn.Foreground = brush;
+            //settingsBtn.Foreground = brush;
 
             //Text form
             translateTxt.Foreground = brush;
             translatedTxt.Foreground = brush;
+
+            
+            mainMenu.Foreground = brush;
         }
     }
 }
