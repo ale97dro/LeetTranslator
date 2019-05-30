@@ -38,20 +38,7 @@ namespace LeetTranslatorGrafica.Views
             string text = new TextRange(translateTxt.Document.ContentStart, translateTxt.Document.ContentEnd).Text;
             translatedTxt.Document.Blocks.Clear();
 
-            bool writeOnFile = true;
-            Models.ITranslate translator;
-
-            if ((bool)light_leetRadio.IsChecked)
-                translator = new Models.LighLeetTranslator();
-            else
-                translator = new Models.CompleteLeetTranslator();
-
-            if (!(bool)write_on_fileCheck.IsChecked)
-                writeOnFile = false;
-
-            translatedTxt.AppendText((DataContext as ViewModels.MainWindowViewModel).Translate(text, translator, writeOnFile));
-
-           // MessageBox.Show("Translation done", "Translation done", MessageBoxButton.OK, MessageBoxImage.Information);
+            translatedTxt.AppendText((DataContext as ViewModels.MainWindowViewModel).Translate(text));
         }
 
         /// <summary>

@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Models\IService.cs" />
     <Compile Include="Models\LeetTranslator.cs" />
     <Compile Include="Models\CompleteLeetTranslator.cs" />

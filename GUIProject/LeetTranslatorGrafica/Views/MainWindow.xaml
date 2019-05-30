@@ -30,9 +30,9 @@
         
         <Button x:Name="infoBtn" Content="Info" Height="19" Margin="584,47,10,0" VerticalAlignment="Top" Click="infoBtn_Click" Background="White"/>
         <Button x:Name="clearBtn" Content="Clear" HorizontalAlignment="Left" Margin="400,47,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Background="White"/>
-        <RadioButton x:Name="light_leetRadio" Content="Light Leet" Margin="10,50,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="LeetType" HorizontalAlignment="Left" Width="71"/>
-        <RadioButton x:Name="complete_leetRadio" Content="Complete Leet" Margin="86,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="96" GroupName="LeetType"/>
-        <CheckBox x:Name="write_on_fileCheck" Content="Write on file" HorizontalAlignment="Left" Margin="208,50,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="light_leetRadio" IsChecked="{Binding Path=LightLeet}" Content="Light Leet" Margin="10,50,0,0" VerticalAlignment="Top" GroupName="LeetType" HorizontalAlignment="Left" Width="71"/>
+        <RadioButton x:Name="complete_leetRadio" IsChecked="{Binding Path=CompleteLeet}" Content="Complete Leet" Margin="86,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="96" GroupName="LeetType"/>
+        <CheckBox x:Name="write_on_fileCheck"  IsChecked="{Binding Path=WriteOnFile}" Content="Write on file" HorizontalAlignment="Left" Margin="208,50,0,0" VerticalAlignment="Top"/>
         <Button x:Name="settingsBtn" Content="Settings" Height="19" Margin="584,20,10,0" VerticalAlignment="Top" Click="settingsBtn_Click" Background="White"/>
 
     </Grid>
