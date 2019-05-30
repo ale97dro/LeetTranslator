@@ -14,16 +14,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LeetTranslatorGrafica
+namespace LeetTranslatorGrafica.Views
 {
     /// <summary>
     /// Logica di interazione per MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(ViewModels.MainWindowViewModel viewModel)
         {
             InitializeComponent();
+
+            DataContext = viewModel;
         }
 
         /// <summary>
@@ -34,30 +36,22 @@ namespace LeetTranslatorGrafica
         private void translateBtn_Click(object sender, RoutedEventArgs e)
         {
             string text = new TextRange(translateTxt.Document.ContentStart, translateTxt.Document.ContentEnd).Text;
-
             translatedTxt.Document.Blocks.Clear();
 
+            bool writeOnFile = true;
+            Models.ITranslate translator;
 
             if ((bool)light_leetRadio.IsChecked)
-            {
-                if (!(bool)write_on_fileCheck.IsChecked)
-                    translatedTxt.AppendText(Translator.LightLeet(text));
-                else
-                {
-                    Translator.TranslateOnFile(text, Translator.LightLeet);
-                    MessageBox.Show("Translation done", "Translation done", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
+                translator = new Models.LighLeetTranslator();
             else
-            {
-                if (!(bool)write_on_fileCheck.IsChecked)
-                    translatedTxt.AppendText(Translator.CompleteLeet(text));
-                else
-                {
-                    Translator.TranslateOnFile(text, Translator.CompleteLeet);
-                    MessageBox.Show("Translation done", "Translation done", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
+                translator = new Models.CompleteLeetTranslator();
+
+            if (!(bool)write_on_fileCheck.IsChecked)
+                writeOnFile = false;
+
+            translatedTxt.AppendText((DataContext as ViewModels.MainWindowViewModel).Translate(text, translator, writeOnFile));
+
+           // MessageBox.Show("Translation done", "Translation done", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         /// <summary>

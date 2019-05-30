@@ -13,5 +13,14 @@ namespace LeetTranslatorGrafica
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            Models.ITranslationService service = new Models.TranslationService();
+
+            Views.MainWindow mainWindow = new Views.MainWindow(new ViewModels.MainWindowViewModel(service));
+            mainWindow.Show();
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿<Window x:Name="window" x:Class="LeetTranslatorGrafica.MainWindow"
+﻿<Window x:Name="window" x:Class="LeetTranslatorGrafica.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,6 +10,7 @@
     <Grid x:Name="principalGrid" Background="#FFE4E3E3">
         <Label x:Name="titleLab" Content="LeetTranslator" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <Button x:Name="translateBtn" Content="Translate" HorizontalAlignment="Left" Margin="320,47,0,0" Width="75" Height="20" VerticalAlignment="Top" Click="translateBtn_Click" Background="White"/>
+
         <RichTextBox x:Name="translateTxt" HorizontalAlignment="Left" Margin="10,79,0,10" Width="282" FontSize="14">
             <FlowDocument>
                 <Paragraph>
@@ -26,6 +27,7 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
+        
         <Button x:Name="infoBtn" Content="Info" Height="19" Margin="584,47,10,0" VerticalAlignment="Top" Click="infoBtn_Click" Background="White"/>
         <Button x:Name="clearBtn" Content="Clear" HorizontalAlignment="Left" Margin="400,47,0,0" VerticalAlignment="Top" Width="75" Click="clearBtn_Click" Background="White"/>
         <RadioButton x:Name="light_leetRadio" Content="Light Leet" Margin="10,50,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="LeetType" HorizontalAlignment="Left" Width="71"/>

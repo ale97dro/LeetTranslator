@@ -20,7 +20,7 @@ namespace LeetTranslatorGraficaTests
             input = "Hello World!";
             expected = "H3££0 W0r£d!";
 
-            result = Translator.LightLeet(input);
+            result = TranslatorOld.LightLeet(input);
 
             Assert.AreEqual(expected, result);
         }
@@ -36,7 +36,7 @@ namespace LeetTranslatorGraficaTests
             input = "Test complete leet!";
             expected = "73$7 [0[V]p£373 £337!";
 
-            result = Translator.CompleteLeet(input);
+            result = TranslatorOld.CompleteLeet(input);
 
             Assert.AreEqual(expected, result);
         }

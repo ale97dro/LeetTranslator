@@ -12,7 +12,9 @@ namespace LeetTranslatorGrafica
     /// Class that represents a translator and perform translations.
     /// It is a static class that you can't initialize.
     /// </summary>
-    public class Translator
+    /// 
+    [Obsolete]
+    public class TranslatorOld
     {
         private const int N_CHAR= 256;
 
@@ -24,7 +26,7 @@ namespace LeetTranslatorGrafica
         /// <summary>
         /// Private constructor. This is a static class
         /// </summary>
-        private Translator()
+        private TranslatorOld()
         {
 
         }
@@ -45,7 +47,7 @@ namespace LeetTranslatorGrafica
         /// Static initialization of the alphabet
         /// It has got two alphabet: light and complete
         /// </summary>
-        static Translator()
+        static TranslatorOld()
         {
             light_leet_alphabet = new string[N_CHAR];
             complete_leet_alphabet = new string[N_CHAR];

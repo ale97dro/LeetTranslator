@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace LeetTranslatorGrafica
+namespace LeetTranslatorGrafica.Views
 {
     /// <summary>
     /// Logica di interazione per SviluppoTemaBlack.xaml
