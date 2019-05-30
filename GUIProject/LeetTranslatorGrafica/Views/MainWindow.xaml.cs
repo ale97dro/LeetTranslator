@@ -74,6 +74,7 @@ namespace LeetTranslatorGrafica.Views
         /// <param name="e"></param>
         private void infoBtn_Click(object sender, RoutedEventArgs e)
         {
+            //todo: new control
             MessageBox.Show("Leet Translator Graphics - Alessandro Bianchi", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -84,6 +85,7 @@ namespace LeetTranslatorGrafica.Views
         /// <param name="e"></param>
         private void settingsBtn_Click(object sender, RoutedEventArgs e)
         {
+            //todo: new control
             bool dark_theme = Properties.Settings.Default.DarkTheme;
 
             new Settings().ShowDialog();
