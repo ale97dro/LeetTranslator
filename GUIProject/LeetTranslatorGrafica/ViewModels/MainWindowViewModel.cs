@@ -68,6 +68,14 @@ namespace LeetTranslatorGrafica.ViewModels
             }
         }
 
+        public IList<Models.Alphabet> Alphabets
+        {
+            get
+            {
+                return tranlationService.Alphabets;
+            }
+        }
+
 
         //private void TranslateMethod(object param)
         //{
@@ -81,13 +89,14 @@ namespace LeetTranslatorGrafica.ViewModels
 
         public string Translate(string plainText)
         {
-            Models.ITranslate trans;
+            Models.ITranslate trans = null;
 
+            //todo
             if (lightLeet)
-                trans = new Models.LighLeetTranslator();
+                trans = new Models.LeetTranslator(Models.AlphabetFactory.LightLeet());
             else
-                trans = new Models.CompleteLeetTranslator();
-                
+                trans = new Models.LeetTranslator(Models.AlphabetFactory.CompleteLeet());
+
             return tranlationService.ExecuteService(plainText, trans, writeOnFile);
         }
     }

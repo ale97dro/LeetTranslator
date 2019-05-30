@@ -8,23 +8,23 @@ namespace LeetTranslatorGrafica.Models
 {
     public class Alphabet
     {
-        //private string[] alphabet;
+        private List<Character> characters;
 
-        private List<Character> alphabet;
-
-
-        public static Alphabet CreateAlphabet()
+        public Alphabet(List<Character> characters)
         {
-            Alphabet newAlphabet = new Alphabet();
-
-
-
-            return newAlphabet;
+            this.characters = characters;
         }
 
-        private Alphabet()
+        public Alphabet(Character[] characters)
         {
-            alphabet = new List<Character>(256);
+            this.characters = characters.ToList();
         }
+
+        public Character GetCharacter(int index)
+        {
+            return characters[index];
+        }
+
+        public List<Character> Characters => new List<Character>(characters);
     }
 }

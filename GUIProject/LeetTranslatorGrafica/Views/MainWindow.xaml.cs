@@ -159,8 +159,8 @@ namespace LeetTranslatorGrafica.Views
 
             //Button and general controls
             //titleLab.Foreground = brush;
-            light_leetRadio.Foreground = brush;
-            complete_leetRadio.Foreground = brush;
+            //light_leetRadio.Foreground = brush;
+            //complete_leetRadio.Foreground = brush;
             write_on_fileCheck.Foreground = brush;
             translateBtn.Foreground = brush;
             clearBtn.Foreground = brush;

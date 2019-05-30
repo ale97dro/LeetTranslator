@@ -13,11 +13,11 @@ namespace LeetTranslatorGrafica.Models
 
         public TranslationService()
         {
-            //todo: add the alphabets
+            //todo: add the alphabets to display to gui
             alphabets = new List<Alphabet>();
         }
 
-        public IList<Alphabet> Alphabets => throw new NotImplementedException();
+        public IList<Alphabet> Alphabets => alphabets;
 
         public string ExecuteService(string plainText, ITranslate translator, bool writeOnFile)
         {

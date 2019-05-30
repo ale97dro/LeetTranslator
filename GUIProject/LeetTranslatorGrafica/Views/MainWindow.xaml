@@ -59,7 +59,7 @@
             <RadioButton x:Name="complete_leetRadio" Margin="5" IsChecked="{Binding Path=CompleteLeet}" Content="Complete Leet" Width="100" GroupName="LeetType" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" VerticalAlignment="Center" HorizontalAlignment="Left" />
 
 
-            <!--<ComboBox x:Name="alphabetCombo" Margin="5" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" />-->
+            <ComboBox x:Name="alphabetCombo" ItemsSource="{Binding Path=Alphabets}" Margin="5" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" />
 
             <CheckBox x:Name="write_on_fileCheck" Margin="15,5,5,5" IsChecked="{Binding Path=WriteOnFile}" Content="Write on file" Width="100" VerticalContentAlignment="Stretch" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 

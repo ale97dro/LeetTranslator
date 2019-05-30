@@ -55,12 +55,11 @@
     </ApplicationDefinition>
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Models\Alphabet.cs" />
+    <Compile Include="Models\AlphabetFactory.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\IService.cs" />
     <Compile Include="Models\LeetTranslator.cs" />
-    <Compile Include="Models\CompleteLeetTranslator.cs" />
     <Compile Include="Models\ITranslate.cs" />
-    <Compile Include="Models\LighLeetTranslator.cs" />
     <Compile Include="Models\WriteTranslation.cs" />
     <Compile Include="Views\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>

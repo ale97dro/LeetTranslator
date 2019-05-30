@@ -6,18 +6,22 @@ using System.Threading.Tasks;
 
 namespace LeetTranslatorGrafica.Models
 {
-    public abstract class LeetTranslator : ITranslate
+    public class LeetTranslator : ITranslate
     {
-        public const int N_CHAR = 256;
+        //public const int N_CHAR = 256;
 
-        protected string[] alphabet;
+        //protected string[] alphabet;
 
-        public LeetTranslator()
+        protected Alphabet alphabet;
+
+        public LeetTranslator(Alphabet alphabet)
         {
-            alphabet = new string[N_CHAR];
+            this.alphabet = alphabet;
 
-            for (int i = 0; i < N_CHAR; i++)
-                alphabet[i] = Convert.ToChar(i).ToString();
+            //alphabet = new string[N_CHAR];
+
+            //for (int i = 0; i < N_CHAR; i++)
+            //    alphabet[i] = Convert.ToChar(i).ToString();
         }
 
         public virtual string Translate(string plainText)
@@ -25,7 +29,7 @@ namespace LeetTranslatorGrafica.Models
             StringBuilder s = new StringBuilder();
 
             foreach (char x in plainText)
-                s.Append(alphabet[Convert.ToInt32(x)]);
+                s.Append(alphabet.GetCharacter(Convert.ToInt32(x)).LeetCharacter);
 
             return s.ToString();
         }

@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace LeetTranslatorGrafica.Models
 {
-    class Character
+    public class Character
     {
+        public Character(string originalCharacter, string leetCharacter)
+        {
+            this.OriginalCharacter = originalCharacter;
+            this.LeetCharacter = leetCharacter;
+        }
+
+        public Character(string character)
+            : this(character, character)
+        {
+
+        }
+
+        public string OriginalCharacter { get; }
+
+        public string LeetCharacter { get; set; }
     }
 }
