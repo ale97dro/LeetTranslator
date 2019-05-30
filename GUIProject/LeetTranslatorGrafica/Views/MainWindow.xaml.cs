@@ -54,6 +54,12 @@ namespace LeetTranslatorGrafica.Views
                 SetDarkTheme();
             else
                 SetLightTheme();
+
+            //List<string> alpha = new List<string>();
+
+            //alpha.Add("Light");
+            //alpha.Add("Complete");
+            //alphabetCombo.ItemsSource = alpha;
         }
 
         /// <summary>

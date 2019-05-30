@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace LeetTranslatorGrafica.Models
 {
-    public interface ITranslationService
+    class Character
     {
-        string ExecuteService(string plainText, ITranslate translator, bool writeOnFile);
-        IList<Alphabet> Alphabets { get; }
     }
 }
