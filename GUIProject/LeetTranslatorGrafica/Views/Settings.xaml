@@ -8,15 +8,15 @@
         Title="Settings" Height="228.8" Width="257.4" Loaded="window_Loaded">
     <Grid x:Name="principalGrid">
 
-        <Label x:Name="titleLab" Content="Settings" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="titleLab" Content="Theme" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
 
         <RadioButton x:Name="lightThemeRadio" Content="Light" HorizontalAlignment="Left" Margin="105,49,0,0" VerticalAlignment="Top" GroupName="ThemeRadio" IsChecked="True"/>
         <RadioButton x:Name="darkThemeRadio" Content="Dark" HorizontalAlignment="Left" Margin="165,49,0,0" VerticalAlignment="Top" GroupName="ThemeRadio"/>
         <Label x:Name="themeLab" Content="Theme" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top"/>
         <Button x:Name="okBtn" Content="OK" HorizontalAlignment="Left" Margin="84,168,0,0" VerticalAlignment="Top" Width="75" Click="okBtn_Click"/>
         <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" Margin="164,168,0,0" VerticalAlignment="Top" Width="75" Click="cancelBtn_Click"/>
-        <Button x:Name="checkUpdateBtn" Content="Check for Update" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Width="111"/>
-        <Button x:Name="helpBtn" Content="Help" HorizontalAlignment="Left" Margin="134,79,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="checkUpdateBtn" Content="Check for Update" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top" Width="111"/>
+        <Button x:Name="helpBtn" Content="Help" HorizontalAlignment="Left" Margin="134,123,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>

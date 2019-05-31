@@ -4,9 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LeetTranslatorGrafica"
+        xmlns:view="clr-namespace:LeetTranslatorGrafica.Views"
+        xmlns:command="clr-namespace:LeetTranslatorGrafica.Command"
         mc:Ignorable="d"
         Title="LeetTranslator" Height="383.368" Width="674.754" WindowStartupLocation="CenterScreen" Loaded="window_Loaded">
 
+
+    <Window.CommandBindings>
+        <!--<CommandBinding Command="{x:Static view:MainWindow.myCommand}" Executed="MenuItem_Click"/>-->
+        <!--<CommandBinding Command="{x:Static command:MainWindowCommand.OpenCommand}" Executed="SaveFile"/>-->
+
+        <CommandBinding Command="{x:Static command:MainWindowCommand.OpenCommand}" Executed="OpenFile"/>
+        <CommandBinding Command="{x:Static command:MainWindowCommand.SaveCommand}" Executed="SaveFile"/>
+        <CommandBinding Command="{x:Static command:MainWindowCommand.SettingsCommand}" Executed="OpenSettings"/>
+        
+        <!--<CommandBinding Command="{x:Static command:MainWindowCommand.TestCommand}" Executed="SaveFile"/>-->
+    </Window.CommandBindings>
+    
     <Grid x:Name="principalGrid" Background="#FFE4E3E3">
 
         <Grid.RowDefinitions>
@@ -17,7 +31,7 @@
             <RowDefinition Height="80*"/>
             <!-- Text row-->
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -26,14 +40,35 @@
 
         <Menu x:Name="mainMenu" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Height="Auto" Width="Auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             <MenuItem Header="File" Height="25" Width="33">
-                <MenuItem Header="Open" HorizontalAlignment="Left" Height="20" Width="140"/>
-                <MenuItem Header="Save" HorizontalAlignment="Left" Height="20" Width="140"/>
-                <MenuItem Header="Close" HorizontalAlignment="Left" Height="20" Width="140"/>
+                <MenuItem x:Name="openMenu" Header="Open" HorizontalAlignment="Left" Height="20" Width="200" InputGestureText="CTRL + O" Click="OpenFile"/>
+
+                <Separator HorizontalAlignment="Left" Height="1" Width="200"/>
+
+                <MenuItem x:Name="saveMenu" Header="Save" HorizontalAlignment="Left" Height="20" Width="200" InputGestureText="CTRL + S" Click="SaveFile"/>
+
+                <Separator HorizontalAlignment="Left" Height="1" Width="200"/>
+
+                <MenuItem Header="Import" HorizontalAlignment="Left" Height="20" Width="200">
+                    <MenuItem Header="Text File" HorizontalAlignment="Left" Height="20" Width="200"/>
+                </MenuItem>
+
+                <MenuItem Header="Export" HorizontalAlignment="Left" Height="20" Width="200">
+                    <MenuItem Header="Text File" HorizontalAlignment="Left" Height="20" Width="140"/>
+                </MenuItem>
+
+                <Separator HorizontalAlignment="Left" Height="1" Width="200"/>
+
+                <MenuItem x:Name="settingsMenu" Header="Settings" HorizontalAlignment="Left" Height="20" Width="200" Click="OpenSettings" InputGestureText="CTRL + I"/>
+
+                <Separator HorizontalAlignment="Left" Height="1" Width="200"/>
+
+                <MenuItem x:Name="closeMenu" Header="Close" HorizontalAlignment="Left" Height="20" Width="200" Click="CloseApp" InputGestureText="ALT + F4"/>
+
+
             </MenuItem>
-            <MenuItem Height="25" Width="20" HorizontalContentAlignment="Center">
-                <MenuItem.Header>
-                    <TextBlock Text="?" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                </MenuItem.Header>
+            <MenuItem Header="?" Height="25" Width="20" HorizontalContentAlignment="Center">
+                <MenuItem x:Name="infoMenu" Header="Info" HorizontalAlignment="Left" Height="20" Width="140" Click="ShowInfo"/>
+                <MenuItem Header="Help" HorizontalAlignment="Left" Height="20" Width="140" />
             </MenuItem>
         </Menu>
 
@@ -63,15 +98,14 @@
                       ItemsSource="{Binding Path=Alphabets}" 
                       SelectedItem="{Binding Path=SelectedAlphabet}"
                       DisplayMemberPath="Name"
-                      Margin="5" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" />
-
-            <CheckBox x:Name="write_on_fileCheck" Margin="15,5,5,5" IsChecked="{Binding Path=WriteOnFile}" Content="Write on file" Width="150" VerticalContentAlignment="Stretch" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                      Margin="5,9" Width="131" VerticalAlignment="Center" HorizontalAlignment="Left" />
+            <CheckBox x:Name="write_on_fileCheck" Margin="40,12,5,12" IsChecked="{Binding WriteOnFile}" Content="Write on file" Width="93" VerticalContentAlignment="Stretch" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
             <Button x:Name="translateBtn" Margin="50,5,5,5" Content="Translate" Width="75" Height="20" Click="translateBtn_Click" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" HorizontalAlignment="Left"/>
             <Button x:Name="clearBtn" Margin="15,5,5,5" Content="Clear" Width="75" Click="clearBtn_Click" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
         </StackPanel>
-        
+
         <!--<Button x:Name="settingsBtn" Grid.Row="1" Content="Settings" Height="19" VerticalAlignment="Top" Click="settingsBtn_Click" Background="White" />
         <Button x:Name="infoBtn" Grid.Row="1" Content="Info" Height="19" Margin="584,27,10,0" VerticalAlignment="Top" Click="infoBtn_Click" Background="White"/>-->
 
@@ -92,7 +126,7 @@
             </FlowDocument>
         </RichTextBox>
 
-        
+
 
 
     </Grid>

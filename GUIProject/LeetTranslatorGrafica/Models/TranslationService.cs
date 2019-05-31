@@ -13,7 +13,6 @@ namespace LeetTranslatorGrafica.Models
 
         public TranslationService()
         {
-            //todo: add the alphabets to display to gui
             alphabets = new List<Alphabet>();
 
             alphabets.Add(AlphabetFactory.LightLeet());

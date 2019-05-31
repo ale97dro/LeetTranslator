@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\MainWindowCommand.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Models\Alphabet.cs" />
     <Compile Include="Models\AlphabetFactory.cs" />
@@ -69,7 +70,6 @@
     </Compile>
     <Compile Include="Class\Theme.cs" />
     <Compile Include="Class\TranslatorOld.cs" />
-    <Compile Include="Class\Utility.cs" />
     <Compile Include="Models\TranslationService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />

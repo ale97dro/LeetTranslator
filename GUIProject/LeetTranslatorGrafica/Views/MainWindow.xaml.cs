@@ -28,8 +28,10 @@ namespace LeetTranslatorGrafica.Views
             DataContext = viewModel;
         }
 
+
         /// <summary>
-        /// Start the translation process
+        /// Start the translation process.
+        /// Take the plain text and call the right ModelView method
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -54,12 +56,6 @@ namespace LeetTranslatorGrafica.Views
                 SetDarkTheme();
             else
                 SetLightTheme();
-
-            //List<string> alpha = new List<string>();
-
-            //alpha.Add("Light");
-            //alpha.Add("Complete");
-            //alphabetCombo.ItemsSource = alpha;
         }
 
         /// <summary>
@@ -73,30 +69,50 @@ namespace LeetTranslatorGrafica.Views
             translatedTxt.Document.Blocks.Clear();
         }
 
+
+        /********************************
+         *                              *
+         *                              *
+         *         MENU HANDLER         *
+         *                              *
+         *                              *
+         ********************************/
+
+
+        /***** FILE *****/
         /// <summary>
-        /// Show info about this software
+        /// Open an existing leet file
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void infoBtn_Click(object sender, RoutedEventArgs e)
+        private void OpenFile(object sender, RoutedEventArgs e)
         {
-            //todo: new control
-            MessageBox.Show("Leet Translator Graphics - Alessandro Bianchi", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Open");
         }
 
         /// <summary>
-        /// Open new settings window
+        /// Save a new (or already existing) leet file
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void settingsBtn_Click(object sender, RoutedEventArgs e)
+        private void SaveFile(object sender, RoutedEventArgs e)
         {
-            //todo: new control
+            MessageBox.Show("Save");
+        }
+
+        /// <summary>
+        /// Open window settings
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenSettings(object sender, RoutedEventArgs e)
+        {
+            //todo: refactor mvvm
             bool dark_theme = Properties.Settings.Default.DarkTheme;
 
             new Settings().ShowDialog();
 
-            if(dark_theme!=Properties.Settings.Default.DarkTheme)
+            if (dark_theme != Properties.Settings.Default.DarkTheme)
             {
                 if (Properties.Settings.Default.DarkTheme)
                     SetDarkTheme();
@@ -104,6 +120,30 @@ namespace LeetTranslatorGrafica.Views
                     SetLightTheme();
             }
         }
+
+        /// <summary>
+        /// Close the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CloseApp(object sender, RoutedEventArgs e)
+        {
+            CloseApp();
+        }
+
+
+        /***** ? *****/
+
+        /// <summary>
+        /// Show info about this software
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ShowInfo(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Leet Translator Graphics - Alessandro Bianchi", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
 
         /// <summary>
         /// Set the color of the GUI according Dark Theme rules
@@ -174,5 +214,14 @@ namespace LeetTranslatorGrafica.Views
             
             mainMenu.Foreground = brush;
         }
+
+        
+
+        private void CloseApp()
+        {
+            this.Close();
+        }
+
+        
     }
 }
