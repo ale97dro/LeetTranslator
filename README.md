@@ -1,11 +1,11 @@
 <h1>LeetTranslator 0.9</h1>
 
-In this repository you'll find two different version of the Translator: the first is written in C++ and has got only command-line interface, while the second is C# version with also a small GUI.
+In this repository you'll find a simple leet translator that allow you to translate plain text to leet.
 
 The Translator use two alphabet:
 <ul>
-	<li>Light leet: use only symbols and characters allowed by OS</li>
-	<li>Complete leet: use all characters and symbols</li>
+	<li>Light leet: use only some symbols and characters</li>
+	<li>Complete leet: use all characters and symbols possible to translate your text</li>
 </ul>
 
 <br/>
@@ -13,46 +13,24 @@ The Translator use two alphabet:
 <h1>GUI Project</h1>
 
 I'm working on this GUI for the project.<br/>
-The GUI application is less powerfull than the command-line: it doesn't allow you to modify files' name in the filesystem. I think I will implement this possibility in the final version. <br/>
-If you want modify the GUI, you can open the project with your version of Visual Studio (I use VS 2017 Community).<br/>
-You can also lunch only the .exe file in the solution to run the Translator.
+The project's architecture is made with the MVVM pattern and the GUI is totally responsive (I'm working at this time to convert the old architecture and the first draft of the GUI). <br/>
+The objective is to provide a fully-featured translator with:
+<ul>
+	<li> Editor preferences (themes, settings, ...)</li>
+	<li> A simple editor to write, translate and copy the results</li>
+	<li> A system to save and reload your leet files: this allow to you to save directly the leet files and continue to work on these in a second time</li>
+</ul>
 
-At this moment, you can choose between two different theme: Light and Dark.
+At this moment, you can choose between two different theme: Light and Dark. <br/>
+
+Another feature I'd like to implement is the possibility for the user to add his favourite leet version to translate his own files. I'll work on that feature when I'll complete the basic functionalities.<br/>
+
+If you want modify the GUI or try the translator, you can open the project with your version of Visual Studio (I use VS 2017 Community).<br/>
+
+
 
 ![2018-05-21](https://user-images.githubusercontent.com/25732860/40309278-366426ee-5d09-11e8-85f5-3c5598e2f6b8.png)
 
 
 <br/>
 
-<h1>Command-line version</h1>
-
-The software can work in two different modes: 
-<ul>
-	<li>Rename file: you can translate the name of a file</li>
-	<li>Translate some text that you can write via command line and save it into a .txt file</li>
-</ul>
-
-The first mode use a reduced alphabet because it's impossibile to create a good translation without use some characters that aren't allowed by OS (for example, '/', '|', '\',).
-
-<br/>
-
-<h2>Compile command</h2>
-
-If you want to compile the solution, here's the command:<br/><br/>
-	<b>g++ -o leettranslator main.cpp translator.cpp utility.cpp</b>
-	
-<br/>
-
-<h2>Execution command</h2>
-<ul>
-	<li>Rename file mode: leettranslator -f file_path file_extension</li>
-	<li>Translate text mode: leettranslator -t destination_file</li>
-</ul>
-
-<br/>
-
-<h2>Running issues</h2>
-
-On Windows, you can find some problem when you want to execute this software: if you don't change your variable %PATH to execute C++, the software doesn't run.
-Because of this, I add .dll file to the project: you have to copy this file into the software folder and then you have to execute the software normally.
-You can find .dll in the MinGW folder of the project.
