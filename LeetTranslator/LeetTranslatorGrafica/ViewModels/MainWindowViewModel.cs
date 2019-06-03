@@ -73,5 +73,12 @@ namespace LeetTranslatorGrafica.ViewModels
 
             return tranlationService.ExecuteService(plainText, trans, writeOnFile);
         }
+
+        public SettingsViewModel Settings()
+        {
+            Models.ISettingsService service = new Models.SettingsService();
+
+            return new SettingsViewModel(service);
+        }
     }
 }

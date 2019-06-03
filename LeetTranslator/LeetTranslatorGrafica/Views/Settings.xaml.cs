@@ -19,9 +19,11 @@ namespace LeetTranslatorGrafica.Views
     /// </summary>
     public partial class Settings : Window
     {
-        public Settings()
+        public Settings(ViewModels.SettingsViewModel vm)
         {
             InitializeComponent();
+
+            DataContext = vm;
         }
 
         /// <summary>
@@ -31,7 +33,7 @@ namespace LeetTranslatorGrafica.Views
         /// <param name="e"></param>
         private void okBtn_Click(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.DarkTheme = (bool)darkThemeRadio.IsChecked;
+            //Properties.Settings.Default.DarkTheme = (bool)darkThemeRadio.IsChecked;
             Properties.Settings.Default.Save();
 
             this.Close();
@@ -54,8 +56,8 @@ namespace LeetTranslatorGrafica.Views
         /// <param name="e"></param>
         private void window_Loaded(object sender, RoutedEventArgs e)
         {
-            lightThemeRadio.IsChecked = !Properties.Settings.Default.DarkTheme;
-            darkThemeRadio.IsChecked = Properties.Settings.Default.DarkTheme;
+            //lightThemeRadio.IsChecked = !Properties.Settings.Default.DarkTheme;
+            //darkThemeRadio.IsChecked = Properties.Settings.Default.DarkTheme;
 
             if (Properties.Settings.Default.DarkTheme)
                 SetDarkTheme();
@@ -68,7 +70,7 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         private void SetDarkTheme()
         {
-            SetTheme(Theme.DARK_TEXT, Theme.DARK_BACKGROUND, Theme.DARK_CONTROLS);
+            SetTheme(Models.Theme.DARK_TEXT, Models.Theme.DARK_BACKGROUND, Models.Theme.DARK_CONTROLS);
         }
 
         /// <summary>
@@ -76,7 +78,7 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         private void SetLightTheme()
         {
-            SetTheme(Theme.LIGHT_TEXT, Theme.LIGHT_BACKGROUND, Theme.LIGHT_CONTROLS);
+            SetTheme(Models.Theme.LIGHT_TEXT, Models.Theme.LIGHT_BACKGROUND, Models.Theme.LIGHT_CONTROLS);
         }
 
         /// <summary>
@@ -91,25 +93,25 @@ namespace LeetTranslatorGrafica.Views
             Brush brush;
 
             //Create brush for background
-            brush = Theme.CreateBrush(background);
+            brush = Models.Theme.CreateBrush(background);
 
             principalGrid.Background = brush;
 
             //Create brush for controls background
-            brush = Theme.CreateBrush(controls);
+            brush = Models.Theme.CreateBrush(controls);
 
             okBtn.Background = brush;
             cancelBtn.Background = brush;
             checkUpdateBtn.Background = brush;
 
             //Create brush for text
-            brush = Theme.CreateBrush(text);
+            brush = Models.Theme.CreateBrush(text);
 
             titleLab.Foreground = brush;
 
             themeLab.Foreground = brush;
-            lightThemeRadio.Foreground = brush;
-            darkThemeRadio.Foreground = brush;
+            //lightThemeRadio.Foreground = brush;
+            //darkThemeRadio.Foreground = brush;
 
             okBtn.Foreground = brush;
             cancelBtn.Foreground = brush;

@@ -58,17 +58,20 @@
     <Compile Include="Models\Alphabet.cs" />
     <Compile Include="Models\AlphabetFactory.cs" />
     <Compile Include="Models\Character.cs" />
-    <Compile Include="Models\IService.cs" />
+    <Compile Include="Models\ITranslationService.cs" />
+    <Compile Include="Models\ISettingsService.cs" />
     <Compile Include="Models\LeetTranslator.cs" />
     <Compile Include="Models\ITranslate.cs" />
+    <Compile Include="Models\SettingsService.cs" />
     <Compile Include="Models\WriteTranslation.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Views\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SviluppoTemaBlack.xaml.cs">
       <DependentUpon>SviluppoTemaBlack.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Class\Theme.cs" />
+    <Compile Include="Models\Theme.cs" />
     <Compile Include="Class\TranslatorOld.cs" />
     <Compile Include="Models\TranslationService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />

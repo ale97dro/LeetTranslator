@@ -5,18 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LeetTranslatorGrafica"
         mc:Ignorable="d"
-        Title="Settings" Height="228.8" Width="257.4" Loaded="window_Loaded">
+        Title="Settings" Height="229" Width="270" Loaded="window_Loaded">
     <Grid x:Name="principalGrid">
 
-        <Label x:Name="titleLab" Content="Theme" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <RadioButton x:Name="lightThemeRadio" Content="Light" HorizontalAlignment="Left" Margin="105,49,0,0" VerticalAlignment="Top" GroupName="ThemeRadio" IsChecked="True"/>
-        <RadioButton x:Name="darkThemeRadio" Content="Dark" HorizontalAlignment="Left" Margin="165,49,0,0" VerticalAlignment="Top" GroupName="ThemeRadio"/>
-        <Label x:Name="themeLab" Content="Theme" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="okBtn" Content="OK" HorizontalAlignment="Left" Margin="84,168,0,0" VerticalAlignment="Top" Width="75" Click="okBtn_Click"/>
-        <Button x:Name="cancelBtn" Content="Cancel" HorizontalAlignment="Left" Margin="164,168,0,0" VerticalAlignment="Top" Width="75" Click="cancelBtn_Click"/>
-        <Button x:Name="checkUpdateBtn" Content="Check for Update" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top" Width="111"/>
-        <Button x:Name="helpBtn" Content="Help" HorizontalAlignment="Left" Margin="134,123,0,0" VerticalAlignment="Top" Width="75"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="titleLab" Grid.Row="0" Grid.Column="0" Content="Settings" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+
+        <Label x:Name="themeLab" Grid.Row="1" Grid.Column="0" Content="Theme" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+          
+            <ComboBox x:Name="themeCombo" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center" Width="60" 
+                      ItemsSource="{Binding Path=Themes}"
+                      SelectedItem="{Binding Path=SelectedTheme}"
+                      DisplayMemberPath="Name"/>
+        </StackPanel>
+
+        <Button x:Name="checkUpdateBtn" Grid.Row="2" Grid.Column="0" Content="Check for Update" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" Width="111"/>
+        
+        <Button x:Name="okBtn" Grid.Row="3" Grid.Column="0" Content="OK" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center" Width="75" Click="okBtn_Click"/>
+        <Button x:Name="cancelBtn" Grid.Row="3" Grid.Column="1" Content="Cancel" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center" Width="75" Click="cancelBtn_Click"/>
+        
+        <!--<Button x:Name="helpBtn" Content="Help" HorizontalAlignment="Left" Margin="134,123,0,0" VerticalAlignment="Top" Width="75"/>-->
 
     </Grid>
 </Window>

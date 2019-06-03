@@ -31,7 +31,7 @@ namespace LeetTranslatorGrafica.Views
 
         /// <summary>
         /// Start the translation process.
-        /// Take the plain text and call the right ModelView method
+        /// Take the plain text and call the right   ModelView method
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -52,6 +52,7 @@ namespace LeetTranslatorGrafica.Views
         {
             clearBtn_Click(null, null);
 
+            //todo: delete this setting
             if (Properties.Settings.Default.DarkTheme)
                 SetDarkTheme();
             else
@@ -110,7 +111,9 @@ namespace LeetTranslatorGrafica.Views
             //todo: refactor mvvm
             bool dark_theme = Properties.Settings.Default.DarkTheme;
 
-            new Settings().ShowDialog();
+            //todo: move creation logic to MainVindowViewModel
+            new Settings((DataContext as ViewModels.MainWindowViewModel).Settings()).ShowDialog();
+            //new Settings(new ViewModels.SettingsViewModel(null)).ShowDialog();
 
             if (dark_theme != Properties.Settings.Default.DarkTheme)
             {
@@ -150,7 +153,7 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         private void SetDarkTheme()
         {
-            SetTheme(Theme.DARK_TEXT, Theme.DARK_BACKGROUND, Theme.DARK_CONTROLS);
+            SetTheme(Models.Theme.DARK_TEXT, Models.Theme.DARK_BACKGROUND, Models.Theme.DARK_CONTROLS);
         }
 
         /// <summary>
@@ -158,7 +161,7 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         private void SetLightTheme()
         {
-            SetTheme(Theme.LIGHT_TEXT, Theme.LIGHT_BACKGROUND, Theme.LIGHT_CONTROLS);
+            SetTheme(Models.Theme.LIGHT_TEXT, Models.Theme.LIGHT_BACKGROUND, Models.Theme.LIGHT_CONTROLS);
         }
 
         /// <summary>
@@ -173,14 +176,14 @@ namespace LeetTranslatorGrafica.Views
             Brush brush;
 
             //Create brush for background
-            brush = Theme.CreateBrush(background);
+            brush = Models.Theme.CreateBrush(background);
 
             principalGrid.Background = brush;
 
             mainMenu.Background = brush;
 
             //Create brush for controls
-            brush = Theme.CreateBrush(controls);
+            brush = Models.Theme.CreateBrush(controls);
 
             //Button
             translateBtn.Background = brush;
@@ -195,7 +198,7 @@ namespace LeetTranslatorGrafica.Views
             
 
             //Create brush for text
-            brush = Theme.CreateBrush(text);
+            brush = Models.Theme.CreateBrush(text);
 
             //Button and general controls
             //titleLab.Foreground = brush;
