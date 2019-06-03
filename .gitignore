@@ -1,5 +1,5 @@
-/GUIProject/packages
-/GUIProject/LeetTranslatorGrafica/bin
-/GUIProject/LeetTranslatorGrafica/obj
-/GUIProject/LeetTranslatorGraficaTests/obj
-/GUIProject/.vs/
+/LeetTranslator/packages
+/LeetTranslator/LeetTranslatorGrafica/bin
+/LeetTranslator/LeetTranslatorGrafica/obj
+/LeetTranslator/LeetTranslatorGraficaTests/obj
+/LeetTranslator/.vs/
