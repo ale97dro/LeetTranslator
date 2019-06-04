@@ -37,12 +37,13 @@ namespace LeetTranslatorGrafica.Views
         /// <param name="e"></param>
         private void translateBtn_Click(object sender, RoutedEventArgs e)
         {
-            string text = new TextRange(translateTxt.Document.ContentStart, translateTxt.Document.ContentEnd).Text;
-            translatedTxt.Document.Blocks.Clear();
+            string text = GetPlainText();
+            ClearPlainTextArea();
 
             translatedTxt.AppendText((DataContext as ViewModels.MainWindowViewModel).Translate(text));
         }
 
+        
         /// <summary>
         /// Perform when the window is loaded
         /// </summary>
@@ -66,8 +67,8 @@ namespace LeetTranslatorGrafica.Views
         /// <param name="e"></param>
         private void clearBtn_Click(object sender, RoutedEventArgs e)
         {
-            translateTxt.Document.Blocks.Clear();
-            translatedTxt.Document.Blocks.Clear();
+            ClearPlainTextArea();
+            ClearLeetTextArea();
         }
 
 
@@ -100,6 +101,19 @@ namespace LeetTranslatorGrafica.Views
         {
             MessageBox.Show("Save");
         }
+
+
+        /** EXPORT **/
+        private void ExportPlainTextClick(object sender, RoutedEventArgs e)
+        {
+            (DataContext as ViewModels.MainWindowViewModel).ExportTextFile(GetPlainText());
+        }
+
+        private void ExportLeetTextClick(object sender, RoutedEventArgs e)
+        {
+            (DataContext as ViewModels.MainWindowViewModel).ExportTextFile(GetLeetText());
+        }
+
 
         /// <summary>
         /// Open window settings
@@ -204,7 +218,7 @@ namespace LeetTranslatorGrafica.Views
             //titleLab.Foreground = brush;
             //light_leetRadio.Foreground = brush;
             //complete_leetRadio.Foreground = brush;
-            write_on_fileCheck.Foreground = brush;
+            //write_on_fileCheck.Foreground = brush;
             translateBtn.Foreground = brush;
             clearBtn.Foreground = brush;
             //infoBtn.Foreground = brush;
@@ -218,13 +232,58 @@ namespace LeetTranslatorGrafica.Views
             mainMenu.Foreground = brush;
         }
 
-        
+
+        /// <summary>
+        /// Get the plain text from the RichTextBox
+        /// </summary>
+        /// <returns>Plain text</returns>
+        private string GetPlainText()
+        {
+            try
+            {
+                return new TextRange(translateTxt.Document.ContentStart, translateTxt.Document.ContentEnd).Text;
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
+        /// <summary>
+        /// Get the leet text from the RichTextBox
+        /// </summary>
+        /// <returns>Leet text</returns>
+        private string GetLeetText()
+        {
+            try
+            {
+                return new TextRange(translatedTxt.Document.ContentStart, translateTxt.Document.ContentEnd).Text;
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
+        /// <summary>
+        /// Clear the plain text RichTextBox
+        /// </summary>
+        private void ClearPlainTextArea()
+        {
+            translateTxt.Document.Blocks.Clear();
+        }
+
+        /// <summary>
+        /// Clear the leet text RichTextBox
+        /// </summary>
+        private void ClearLeetTextArea()
+        {
+            translatedTxt.Document.Blocks.Clear();
+        }
 
         private void CloseApp()
         {
             this.Close();
         }
-
-        
     }
 }

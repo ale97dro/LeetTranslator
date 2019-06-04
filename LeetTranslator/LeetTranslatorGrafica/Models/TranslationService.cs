@@ -21,17 +21,9 @@ namespace LeetTranslatorGrafica.Models
 
         public IList<Alphabet> Alphabets => alphabets;
 
-        public string ExecuteService(string plainText, ITranslate translator, bool writeOnFile)
+        public string ExecuteService(string plainText, ITranslate translator)
         {
-            string translation = translator.Translate(plainText);
-
-            if (writeOnFile)
-            {
-                WriteTranslation.WriteOnFile(translation);
-                Process.Start(WriteTranslation.FILE_NAME);
-            }
-
-            return translation;
+            return translator.Translate(plainText);
         }
     }
 }

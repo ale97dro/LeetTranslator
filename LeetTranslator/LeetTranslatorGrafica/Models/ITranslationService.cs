@@ -8,7 +8,7 @@ namespace LeetTranslatorGrafica.Models
 {
     public interface ITranslationService
     {
-        string ExecuteService(string plainText, ITranslate translator, bool writeOnFile);
+        string ExecuteService(string plainText, ITranslate translator);
         IList<Alphabet> Alphabets { get; }
     }
 }

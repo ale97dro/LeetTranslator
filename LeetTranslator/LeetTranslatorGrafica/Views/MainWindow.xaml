@@ -49,11 +49,12 @@
                 <Separator HorizontalAlignment="Left" Height="1" Width="200"/>
 
                 <MenuItem Header="Import" HorizontalAlignment="Left" Height="20" Width="200">
-                    <MenuItem Header="Text File" HorizontalAlignment="Left" Height="20" Width="200"/>
+                    <MenuItem Header="Plain Text" HorizontalAlignment="Left" Height="20" Width="140"/>
                 </MenuItem>
 
                 <MenuItem Header="Export" HorizontalAlignment="Left" Height="20" Width="200">
-                    <MenuItem Header="Text File" HorizontalAlignment="Left" Height="20" Width="140"/>
+                    <MenuItem Header="Leet" HorizontalAlignment="Left" Height="20" Width="140" Click="ExportLeetTextClick"/>
+                    <MenuItem Header="Plain Text" HorizontalAlignment="Left" Height="20" Width="140" Click="ExportPlainTextClick"/>
                 </MenuItem>
 
                 <Separator HorizontalAlignment="Left" Height="1" Width="200"/>
@@ -99,7 +100,8 @@
                       SelectedItem="{Binding Path=SelectedAlphabet}"
                       DisplayMemberPath="Name"
                       Margin="5,9" Width="131" VerticalAlignment="Center" HorizontalAlignment="Left" />
-            <CheckBox x:Name="write_on_fileCheck" Margin="40,12,5,12" IsChecked="{Binding WriteOnFile}" Content="Write on file" Width="93" VerticalContentAlignment="Stretch" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            
+            <!--<CheckBox x:Name="write_on_fileCheck" Margin="40,12,5,12" IsChecked="{Binding WriteOnFile}" Content="Write on file" Width="93" VerticalContentAlignment="Stretch" VerticalAlignment="Center" HorizontalAlignment="Left"/>-->
 
             <Button x:Name="translateBtn" Margin="50,5,5,5" Content="Translate" Width="75" Height="20" Click="translateBtn_Click" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" HorizontalAlignment="Left"/>
             <Button x:Name="clearBtn" Margin="15,5,5,5" Content="Clear" Width="75" Click="clearBtn_Click" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center"/>

@@ -13,23 +13,21 @@ namespace LeetTranslatorGrafica.Models
 
         public static void WriteOnFile(string text)
         {
+            WriteOnFile(text, FILE_NAME);
+        }
+
+        public static void WriteOnFile(string text, string path)
+        {
             StreamWriter wr = null;
             try
             {
-                wr = new StreamWriter(FILE_NAME);
+                wr = new StreamWriter(path);
                 wr.Write(text);
-
-                //OpenTranslation();
             }
             finally
             {
                 wr.Close();
             }
         }
-
-        //private static void OpenTranslation()
-        //{
-        //    Process.Start(FILE_NAME);
-        //}
     }
 }
