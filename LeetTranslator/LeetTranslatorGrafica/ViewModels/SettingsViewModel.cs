@@ -16,11 +16,20 @@ namespace LeetTranslatorGrafica.ViewModels
         {
             this.settingsService = settingsService;
 
-            Models.Theme theme = Models.Theme.Deserialize(Properties.Settings.Default.ThemeSer);
-            //theme.Deserialize(Properties.Settings.Default.ThemeSer);
 
-            IEnumerable<Models.Theme> result = settingsService.Themes.Where(t => t.Name == theme.Name);
-            this.selectedTheme = result.ElementAt<Models.Theme>(0);
+            if (Properties.Settings.Default.Theme != "")
+            {
+                Models.Theme theme = Models.Theme.Deserialize(Properties.Settings.Default.Theme);
+                //theme.Deserialize(Properties.Settings.Default.ThemeSer);
+
+                IEnumerable<Models.Theme> result = settingsService.Themes.Where(t => t.Name == theme.Name);
+                this.selectedTheme = result.ElementAt<Models.Theme>(0);
+            }
+            else
+            {
+                IEnumerable<Models.Theme> result = settingsService.Themes.Where(t => t.Name == "Light");
+                this.selectedTheme = result.ElementAt<Models.Theme>(0);
+            }
         }
 
         public IList<Models.Theme> Themes { get { return settingsService.Themes; } }
@@ -35,7 +44,7 @@ namespace LeetTranslatorGrafica.ViewModels
 
                 selectedTheme = value;
 
-                Properties.Settings.Default.ThemeSer = selectedTheme.Serialize();
+                Properties.Settings.Default.Theme = selectedTheme.Serialize();
 
                 Properties.Settings.Default.Save();
 

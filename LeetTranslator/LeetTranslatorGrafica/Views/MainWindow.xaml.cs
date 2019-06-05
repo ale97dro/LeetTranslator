@@ -26,6 +26,8 @@ namespace LeetTranslatorGrafica.Views
             InitializeComponent();
 
             DataContext = viewModel;
+
+            //Properties.Settings.Default.Reset();
         }
 
 
@@ -53,71 +55,11 @@ namespace LeetTranslatorGrafica.Views
         {
             ClearTextAreas();
 
-            //todo: delete this setting
-            //if (Properties.Settings.Default.DarkTheme)
-            //    SetDarkTheme();
-            //else
-            //    SetLightTheme();
-
-            /*
-             * if(properties.theme != null)
-             *      loadTheme();
-             *      */
-
-            if(Properties.Settings.Default.ThemeSer != "")
-            {
-                Models.Theme t = Models.Theme.Deserialize(Properties.Settings.Default.ThemeSer);
-                SetTheme(t);
-            }
+            if(Properties.Settings.Default.Theme != "")
+                SetTheme(Models.Theme.Deserialize(Properties.Settings.Default.Theme));
         }
 
-        private void SetTheme(Models.Theme t)
-        {
-            //Use this brush to recolor theme
-            Brush brush;
-
-            //Create brush for background
-            brush = Models.Theme.CreateBrush(t.BackgroundColor);
-
-            principalGrid.Background = brush;
-
-            mainMenu.Background = brush;
-
-            //Create brush for controls
-            brush = Models.Theme.CreateBrush(t.ControlsColor);
-
-            //Button
-            translateBtn.Background = brush;
-            clearBtn.Background = brush;
-            //settingsBtn.Background = brush;
-            //infoBtn.Background = brush;
-
-            //Text form
-            translateTxt.Background = brush;
-            translatedTxt.Background = brush;
-
-
-
-            //Create brush for text
-            brush = Models.Theme.CreateBrush(t.TextColor);
-
-            //Button and general controls
-            //titleLab.Foreground = brush;
-            //light_leetRadio.Foreground = brush;
-            //complete_leetRadio.Foreground = brush;
-            //write_on_fileCheck.Foreground = brush;
-            translateBtn.Foreground = brush;
-            clearBtn.Foreground = brush;
-            //infoBtn.Foreground = brush;
-            //settingsBtn.Foreground = brush;
-
-            //Text form
-            translateTxt.Foreground = brush;
-            translatedTxt.Foreground = brush;
-
-
-            mainMenu.Foreground = brush;
-        }
+        
 
         /// <summary>
         /// Clean text field
@@ -187,13 +129,9 @@ namespace LeetTranslatorGrafica.Views
         /// <param name="e"></param>
         private void OpenSettingsClick(object sender, RoutedEventArgs e)
         {
-            //todo: refactor mvvm
-            //bool dark_theme = Properties.Settings.Default.DarkTheme;
-
             new Settings((DataContext as ViewModels.MainWindowViewModel).Settings()).ShowDialog();
 
-            Models.Theme t = Models.Theme.Deserialize(Properties.Settings.Default.ThemeSer);
-            SetTheme(t);
+            SetTheme(Models.Theme.Deserialize(Properties.Settings.Default.Theme));
         }
 
         /// <summary>
@@ -229,42 +167,21 @@ namespace LeetTranslatorGrafica.Views
             MessageBox.Show("Help");
         }
 
-        /// <summary>
-        /// Set the color of the GUI according Dark Theme rules
-        /// </summary>
-        private void SetDarkTheme()
-        {
-            SetTheme(Models.ThemeColors.DARK_TEXT, Models.ThemeColors.DARK_BACKGROUND, Models.ThemeColors.DARK_CONTROLS);
-        }
 
-        /// <summary>
-        /// Set the color of the GUI according Light Theme rules
-        /// </summary>
-        private void SetLightTheme()
-        {
-            SetTheme(Models.ThemeColors.LIGHT_TEXT, Models.ThemeColors.LIGHT_BACKGROUND, Models.ThemeColors.LIGHT_CONTROLS);
-        }
-
-        /// <summary>
-        /// Set the color of the GUI according to the parameter
-        /// </summary>
-        /// <param name="text">Color of text</param>
-        /// <param name="background">Color of window background</param>
-        /// <param name="controls">Color of controls background (e.g.,  buttons or text form)</param>
-        private void SetTheme(string text, string background, string controls)
+        private void SetTheme(Models.Theme t)
         {
             //Use this brush to recolor theme
             Brush brush;
 
             //Create brush for background
-            brush = Models.Theme.CreateBrush(background);
+            brush = Models.Theme.CreateBrush(t.BackgroundColor);
 
             principalGrid.Background = brush;
 
             mainMenu.Background = brush;
 
             //Create brush for controls
-            brush = Models.Theme.CreateBrush(controls);
+            brush = Models.Theme.CreateBrush(t.ControlsColor);
 
             //Button
             translateBtn.Background = brush;
@@ -276,10 +193,10 @@ namespace LeetTranslatorGrafica.Views
             translateTxt.Background = brush;
             translatedTxt.Background = brush;
 
-            
+
 
             //Create brush for text
-            brush = Models.Theme.CreateBrush(text);
+            brush = Models.Theme.CreateBrush(t.TextColor);
 
             //Button and general controls
             //titleLab.Foreground = brush;
@@ -295,7 +212,7 @@ namespace LeetTranslatorGrafica.Views
             translateTxt.Foreground = brush;
             translatedTxt.Foreground = brush;
 
-            
+
             mainMenu.Foreground = brush;
         }
 

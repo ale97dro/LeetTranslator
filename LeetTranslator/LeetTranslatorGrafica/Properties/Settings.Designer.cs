@@ -26,12 +26,12 @@ namespace LeetTranslatorGrafica.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ThemeSer {
+        public string Theme {
             get {
-                return ((string)(this["ThemeSer"]));
+                return ((string)(this["Theme"]));
             }
             set {
-                this["ThemeSer"] = value;
+                this["Theme"] = value;
             }
         }
     }
