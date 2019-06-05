@@ -160,11 +160,20 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ShowInfo(object sender, RoutedEventArgs e)
+        private void ShowInfoClick(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Leet Translator Graphics - Alessandro Bianchi", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
+        /// <summary>
+        /// Help for the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HelpClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Help");
+        }
 
         /// <summary>
         /// Set the color of the GUI according Dark Theme rules
@@ -301,5 +310,7 @@ namespace LeetTranslatorGrafica.Views
         {
             this.Close();
         }
+
+        
     }
 }

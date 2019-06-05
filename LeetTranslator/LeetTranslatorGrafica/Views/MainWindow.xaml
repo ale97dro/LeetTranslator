@@ -68,8 +68,8 @@
 
             </MenuItem>
             <MenuItem Header="?" Height="25" Width="20" HorizontalContentAlignment="Center">
-                <MenuItem x:Name="infoMenu" Header="Info" HorizontalAlignment="Left" Height="20" Width="140" Click="ShowInfo"/>
-                <MenuItem Header="Help" HorizontalAlignment="Left" Height="20" Width="140" />
+                <MenuItem x:Name="infoMenu" Header="Info" HorizontalAlignment="Left" Height="20" Width="140" Click="ShowInfoClick"/>
+                <MenuItem Header="Help" HorizontalAlignment="Left" Height="20" Width="140" Click="HelpClick" />
             </MenuItem>
         </Menu>
 
