@@ -25,25 +25,13 @@ namespace LeetTranslatorGrafica.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool DarkTheme {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ThemeSer {
             get {
-                return ((bool)(this["DarkTheme"]));
+                return ((string)(this["ThemeSer"]));
             }
             set {
-                this["DarkTheme"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Light")]
-        public string Theme {
-            get {
-                return ((string)(this["Theme"]));
-            }
-            set {
-                this["Theme"] = value;
+                this["ThemeSer"] = value;
             }
         }
     }

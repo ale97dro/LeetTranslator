@@ -63,6 +63,7 @@
     <Compile Include="Models\LeetTranslator.cs" />
     <Compile Include="Models\ITranslate.cs" />
     <Compile Include="Models\SettingsService.cs" />
+    <Compile Include="Models\ThemeColors.cs" />
     <Compile Include="Models\WriteTranslation.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Views\Settings.xaml.cs">

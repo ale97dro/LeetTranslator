@@ -14,8 +14,8 @@ namespace LeetTranslatorGrafica.Models
         {
             themes = new List<Theme>();
 
-            themes.Add(new Theme("Light"));
-            themes.Add(new Theme("Dark"));
+            themes.Add(new Theme("Light", ThemeColors.LIGHT_TEXT, ThemeColors.LIGHT_BACKGROUND, ThemeColors.LIGHT_CONTROLS));
+            themes.Add(new Theme("Dark", ThemeColors.DARK_TEXT, ThemeColors.DARK_BACKGROUND, ThemeColors.DARK_CONTROLS));
         }
 
         public IList<Theme> Themes => themes;

@@ -16,7 +16,10 @@ namespace LeetTranslatorGrafica.ViewModels
         {
             this.settingsService = settingsService;
 
-            IEnumerable<Models.Theme> result = settingsService.Themes.Where(t => t.Name == Properties.Settings.Default.Theme);
+            Models.Theme theme = Models.Theme.Deserialize(Properties.Settings.Default.ThemeSer);
+            //theme.Deserialize(Properties.Settings.Default.ThemeSer);
+
+            IEnumerable<Models.Theme> result = settingsService.Themes.Where(t => t.Name == theme.Name);
             this.selectedTheme = result.ElementAt<Models.Theme>(0);
         }
 
@@ -32,13 +35,7 @@ namespace LeetTranslatorGrafica.ViewModels
 
                 selectedTheme = value;
 
-                ////todo: refactor 
-                if (selectedTheme.Name == "Dark")
-                    Properties.Settings.Default.DarkTheme = true;
-                else
-                    Properties.Settings.Default.DarkTheme = false;
-
-                Properties.Settings.Default.Theme = selectedTheme.Name;
+                Properties.Settings.Default.ThemeSer = selectedTheme.Serialize();
 
                 Properties.Settings.Default.Save();
 

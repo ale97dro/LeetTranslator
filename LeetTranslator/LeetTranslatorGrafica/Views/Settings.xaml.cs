@@ -55,53 +55,28 @@ namespace LeetTranslatorGrafica.Views
         /// <param name="e"></param>
         private void WindowLoaded(object sender, RoutedEventArgs e)
         {
-            if (Properties.Settings.Default.DarkTheme)
-                SetDarkTheme();
-            else
-                SetLightTheme();
+            SetTheme((DataContext as ViewModels.SettingsViewModel).SelectedTheme);
         }
 
-        /// <summary>
-        /// Set the color of the GUI according Dark Theme rules
-        /// </summary>
-        private void SetDarkTheme()
-        {
-            SetTheme(Models.Theme.DARK_TEXT, Models.Theme.DARK_BACKGROUND, Models.Theme.DARK_CONTROLS);
-        }
-
-        /// <summary>
-        /// Set the color of the GUI according Light Theme rules
-        /// </summary>
-        private void SetLightTheme()
-        {
-            SetTheme(Models.Theme.LIGHT_TEXT, Models.Theme.LIGHT_BACKGROUND, Models.Theme.LIGHT_CONTROLS);
-        }
-
-        /// <summary>
-        /// Set the color of the GUI according to the parameter
-        /// </summary>
-        /// <param name="text">Color of text</param>
-        /// <param name="background">Color of window background</param>
-        /// <param name="controls">Color of controls background (e.g.,  buttons or text form)</param>
-        private void SetTheme(string text, string background, string controls)
+        private void SetTheme(Models.Theme t)
         {
             //Use this brush to recolor theme
             Brush brush;
 
             //Create brush for background
-            brush = Models.Theme.CreateBrush(background);
+            brush = Models.Theme.CreateBrush(t.BackgroundColor);
 
             principalGrid.Background = brush;
 
             //Create brush for controls background
-            brush = Models.Theme.CreateBrush(controls);
+            brush = Models.Theme.CreateBrush(t.ControlsColor);
 
             okBtn.Background = brush;
             cancelBtn.Background = brush;
             checkUpdateBtn.Background = brush;
 
             //Create brush for text
-            brush = Models.Theme.CreateBrush(text);
+            brush = Models.Theme.CreateBrush(t.TextColor);
 
             titleLab.Foreground = brush;
 

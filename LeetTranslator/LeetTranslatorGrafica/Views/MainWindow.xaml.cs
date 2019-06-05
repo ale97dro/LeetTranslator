@@ -54,10 +54,69 @@ namespace LeetTranslatorGrafica.Views
             ClearTextAreas();
 
             //todo: delete this setting
-            if (Properties.Settings.Default.DarkTheme)
-                SetDarkTheme();
-            else
-                SetLightTheme();
+            //if (Properties.Settings.Default.DarkTheme)
+            //    SetDarkTheme();
+            //else
+            //    SetLightTheme();
+
+            /*
+             * if(properties.theme != null)
+             *      loadTheme();
+             *      */
+
+            if(Properties.Settings.Default.ThemeSer != "")
+            {
+                Models.Theme t = Models.Theme.Deserialize(Properties.Settings.Default.ThemeSer);
+                SetTheme(t);
+            }
+        }
+
+        private void SetTheme(Models.Theme t)
+        {
+            //Use this brush to recolor theme
+            Brush brush;
+
+            //Create brush for background
+            brush = Models.Theme.CreateBrush(t.BackgroundColor);
+
+            principalGrid.Background = brush;
+
+            mainMenu.Background = brush;
+
+            //Create brush for controls
+            brush = Models.Theme.CreateBrush(t.ControlsColor);
+
+            //Button
+            translateBtn.Background = brush;
+            clearBtn.Background = brush;
+            //settingsBtn.Background = brush;
+            //infoBtn.Background = brush;
+
+            //Text form
+            translateTxt.Background = brush;
+            translatedTxt.Background = brush;
+
+
+
+            //Create brush for text
+            brush = Models.Theme.CreateBrush(t.TextColor);
+
+            //Button and general controls
+            //titleLab.Foreground = brush;
+            //light_leetRadio.Foreground = brush;
+            //complete_leetRadio.Foreground = brush;
+            //write_on_fileCheck.Foreground = brush;
+            translateBtn.Foreground = brush;
+            clearBtn.Foreground = brush;
+            //infoBtn.Foreground = brush;
+            //settingsBtn.Foreground = brush;
+
+            //Text form
+            translateTxt.Foreground = brush;
+            translatedTxt.Foreground = brush;
+
+
+            mainMenu.Foreground = brush;
         }
 
         /// <summary>
@@ -129,17 +188,12 @@ namespace LeetTranslatorGrafica.Views
         private void OpenSettingsClick(object sender, RoutedEventArgs e)
         {
             //todo: refactor mvvm
-            bool dark_theme = Properties.Settings.Default.DarkTheme;
+            //bool dark_theme = Properties.Settings.Default.DarkTheme;
 
             new Settings((DataContext as ViewModels.MainWindowViewModel).Settings()).ShowDialog();
 
-            if (dark_theme != Properties.Settings.Default.DarkTheme)
-            {
-                if (Properties.Settings.Default.DarkTheme)
-                    SetDarkTheme();
-                else
-                    SetLightTheme();
-            }
+            Models.Theme t = Models.Theme.Deserialize(Properties.Settings.Default.ThemeSer);
+            SetTheme(t);
         }
 
         /// <summary>
@@ -180,7 +234,7 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         private void SetDarkTheme()
         {
-            SetTheme(Models.Theme.DARK_TEXT, Models.Theme.DARK_BACKGROUND, Models.Theme.DARK_CONTROLS);
+            SetTheme(Models.ThemeColors.DARK_TEXT, Models.ThemeColors.DARK_BACKGROUND, Models.ThemeColors.DARK_CONTROLS);
         }
 
         /// <summary>
@@ -188,7 +242,7 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         private void SetLightTheme()
         {
-            SetTheme(Models.Theme.LIGHT_TEXT, Models.Theme.LIGHT_BACKGROUND, Models.Theme.LIGHT_CONTROLS);
+            SetTheme(Models.ThemeColors.LIGHT_TEXT, Models.ThemeColors.LIGHT_BACKGROUND, Models.ThemeColors.LIGHT_CONTROLS);
         }
 
         /// <summary>
