@@ -35,7 +35,7 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void translateBtn_Click(object sender, RoutedEventArgs e)
+        private void TranslateClick(object sender, RoutedEventArgs e)
         {
             string text = GetPlainText();
             ClearPlainTextArea();
@@ -51,7 +51,7 @@ namespace LeetTranslatorGrafica.Views
         /// <param name="e"></param>
         private void window_Loaded(object sender, RoutedEventArgs e)
         {
-            clearBtn_Click(null, null);
+            ClearTextAreasClick(null, null);
 
             //todo: delete this setting
             if (Properties.Settings.Default.DarkTheme)
@@ -65,7 +65,7 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void clearBtn_Click(object sender, RoutedEventArgs e)
+        private void ClearTextAreasClick(object sender, RoutedEventArgs e)
         {
             ClearPlainTextArea();
             ClearLeetTextArea();
@@ -87,7 +87,7 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OpenFile(object sender, RoutedEventArgs e)
+        private void OpenFileClick(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Open");
         }
@@ -97,11 +97,17 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SaveFile(object sender, RoutedEventArgs e)
+        private void SaveFileClick(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Save");
         }
 
+
+        /** IMPORT **/
+        private void ImportPlainTextClick(object sender, RoutedEventArgs e)
+        {
+            translateTxt.AppendText((DataContext as ViewModels.MainWindowViewModel).ImportTextFile());
+        }
 
         /** EXPORT **/
         private void ExportPlainTextClick(object sender, RoutedEventArgs e)
@@ -120,7 +126,7 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OpenSettings(object sender, RoutedEventArgs e)
+        private void OpenSettingsClick(object sender, RoutedEventArgs e)
         {
             //todo: refactor mvvm
             bool dark_theme = Properties.Settings.Default.DarkTheme;
@@ -143,7 +149,7 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CloseApp(object sender, RoutedEventArgs e)
+        private void CloseApplicationClick(object sender, RoutedEventArgs e)
         {
             CloseApp();
         }
@@ -281,6 +287,9 @@ namespace LeetTranslatorGrafica.Views
             translatedTxt.Document.Blocks.Clear();
         }
 
+        /// <summary>
+        /// Close the application
+        /// </summary>
         private void CloseApp()
         {
             this.Close();

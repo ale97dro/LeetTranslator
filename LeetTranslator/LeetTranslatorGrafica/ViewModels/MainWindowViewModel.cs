@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -79,6 +80,19 @@ namespace LeetTranslatorGrafica.ViewModels
             return tranlationService.ExecuteService(plainText, trans);
         }
 
+        public string ImportTextFile()
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Text file (*.txt)|*.txt";
+
+            string text = "";
+
+            if ((bool)dialog.ShowDialog())
+                text = File.ReadAllText(dialog.FileName);
+
+            return text;
+        }
+
         public void ExportTextFile(string text)
         {
             string path;
@@ -91,7 +105,8 @@ namespace LeetTranslatorGrafica.ViewModels
             if ((bool)dialog.ShowDialog())
             {
                 path = dialog.FileName;
-                Models.WriteTranslation.WriteOnFile(text, path);
+                File.WriteAllText(path, text);
+                //Models.WriteTranslation.WriteOnFile(text, path);
 
                 Process.Start(path);
             }

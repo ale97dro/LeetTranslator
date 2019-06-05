@@ -14,9 +14,9 @@
         <!--<CommandBinding Command="{x:Static view:MainWindow.myCommand}" Executed="MenuItem_Click"/>-->
         <!--<CommandBinding Command="{x:Static command:MainWindowCommand.OpenCommand}" Executed="SaveFile"/>-->
 
-        <CommandBinding Command="{x:Static command:MainWindowCommand.OpenCommand}" Executed="OpenFile"/>
-        <CommandBinding Command="{x:Static command:MainWindowCommand.SaveCommand}" Executed="SaveFile"/>
-        <CommandBinding Command="{x:Static command:MainWindowCommand.SettingsCommand}" Executed="OpenSettings"/>
+        <CommandBinding Command="{x:Static command:MainWindowCommand.OpenCommand}" Executed="OpenFileClick"/>
+        <CommandBinding Command="{x:Static command:MainWindowCommand.SaveCommand}" Executed="SaveFileClick"/>
+        <CommandBinding Command="{x:Static command:MainWindowCommand.SettingsCommand}" Executed="OpenSettingsClick"/>
         
         <!--<CommandBinding Command="{x:Static command:MainWindowCommand.TestCommand}" Executed="SaveFile"/>-->
     </Window.CommandBindings>
@@ -40,16 +40,16 @@
 
         <Menu x:Name="mainMenu" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Height="Auto" Width="Auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             <MenuItem Header="File" Height="25" Width="33">
-                <MenuItem x:Name="openMenu" Header="Open" HorizontalAlignment="Left" Height="20" Width="200" InputGestureText="CTRL + O" Click="OpenFile"/>
+                <MenuItem x:Name="openMenu" Header="Open" HorizontalAlignment="Left" Height="20" Width="200" InputGestureText="CTRL + O" Click="OpenFileClick"/>
 
                 <Separator HorizontalAlignment="Left" Height="1" Width="200"/>
 
-                <MenuItem x:Name="saveMenu" Header="Save" HorizontalAlignment="Left" Height="20" Width="200" InputGestureText="CTRL + S" Click="SaveFile"/>
+                <MenuItem x:Name="saveMenu" Header="Save" HorizontalAlignment="Left" Height="20" Width="200" InputGestureText="CTRL + S" Click="SaveFileClick"/>
 
                 <Separator HorizontalAlignment="Left" Height="1" Width="200"/>
 
                 <MenuItem Header="Import" HorizontalAlignment="Left" Height="20" Width="200">
-                    <MenuItem Header="Plain Text" HorizontalAlignment="Left" Height="20" Width="140"/>
+                    <MenuItem Header="Plain Text" HorizontalAlignment="Left" Height="20" Width="140" Click="ImportPlainTextClick"/>
                 </MenuItem>
 
                 <MenuItem Header="Export" HorizontalAlignment="Left" Height="20" Width="200">
@@ -59,11 +59,11 @@
 
                 <Separator HorizontalAlignment="Left" Height="1" Width="200"/>
 
-                <MenuItem x:Name="settingsMenu" Header="Settings" HorizontalAlignment="Left" Height="20" Width="200" Click="OpenSettings" InputGestureText="CTRL + I"/>
+                <MenuItem x:Name="settingsMenu" Header="Settings" HorizontalAlignment="Left" Height="20" Width="200" Click="OpenSettingsClick" InputGestureText="CTRL + I"/>
 
                 <Separator HorizontalAlignment="Left" Height="1" Width="200"/>
 
-                <MenuItem x:Name="closeMenu" Header="Close" HorizontalAlignment="Left" Height="20" Width="200" Click="CloseApp" InputGestureText="ALT + F4"/>
+                <MenuItem x:Name="closeMenu" Header="Close" HorizontalAlignment="Left" Height="20" Width="200" Click="CloseApplicationClick" InputGestureText="ALT + F4"/>
 
 
             </MenuItem>
@@ -103,8 +103,8 @@
             
             <!--<CheckBox x:Name="write_on_fileCheck" Margin="40,12,5,12" IsChecked="{Binding WriteOnFile}" Content="Write on file" Width="93" VerticalContentAlignment="Stretch" VerticalAlignment="Center" HorizontalAlignment="Left"/>-->
 
-            <Button x:Name="translateBtn" Margin="50,5,5,5" Content="Translate" Width="75" Height="20" Click="translateBtn_Click" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" HorizontalAlignment="Left"/>
-            <Button x:Name="clearBtn" Margin="15,5,5,5" Content="Clear" Width="75" Click="clearBtn_Click" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Button x:Name="translateBtn" Margin="50,5,5,5" Content="Translate" Width="75" Height="20" Click="TranslateClick" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" HorizontalAlignment="Left"/>
+            <Button x:Name="clearBtn" Margin="15,5,5,5" Content="Clear" Width="75" Click="ClearTextAreasClick" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
         </StackPanel>
 
