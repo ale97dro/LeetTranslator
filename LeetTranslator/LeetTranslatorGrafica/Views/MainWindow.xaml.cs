@@ -49,9 +49,9 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void window_Loaded(object sender, RoutedEventArgs e)
+        private void WindowLoaded(object sender, RoutedEventArgs e)
         {
-            ClearTextAreasClick(null, null);
+            ClearTextAreas();
 
             //todo: delete this setting
             if (Properties.Settings.Default.DarkTheme)
@@ -67,11 +67,10 @@ namespace LeetTranslatorGrafica.Views
         /// <param name="e"></param>
         private void ClearTextAreasClick(object sender, RoutedEventArgs e)
         {
-            ClearPlainTextArea();
-            ClearLeetTextArea();
+            ClearTextAreas();
         }
 
-
+        
         /********************************
          *                              *
          *                              *
@@ -106,6 +105,7 @@ namespace LeetTranslatorGrafica.Views
         /** IMPORT **/
         private void ImportPlainTextClick(object sender, RoutedEventArgs e)
         {
+            ClearTextAreas();
             translateTxt.AppendText((DataContext as ViewModels.MainWindowViewModel).ImportTextFile());
         }
 
@@ -131,9 +131,7 @@ namespace LeetTranslatorGrafica.Views
             //todo: refactor mvvm
             bool dark_theme = Properties.Settings.Default.DarkTheme;
 
-            //todo: move creation logic to MainVindowViewModel
             new Settings((DataContext as ViewModels.MainWindowViewModel).Settings()).ShowDialog();
-            //new Settings(new ViewModels.SettingsViewModel(null)).ShowDialog();
 
             if (dark_theme != Properties.Settings.Default.DarkTheme)
             {
@@ -285,6 +283,15 @@ namespace LeetTranslatorGrafica.Views
         private void ClearLeetTextArea()
         {
             translatedTxt.Document.Blocks.Clear();
+        }
+
+        /// <summary>
+        /// Clear all the text areas
+        /// </summary>
+        private void ClearTextAreas()
+        {
+            ClearPlainTextArea();
+            ClearLeetTextArea();
         }
 
         /// <summary>

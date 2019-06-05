@@ -7,7 +7,7 @@
         xmlns:view="clr-namespace:LeetTranslatorGrafica.Views"
         xmlns:command="clr-namespace:LeetTranslatorGrafica.Command"
         mc:Ignorable="d"
-        Title="LeetTranslator" Height="383.368" Width="674.754" WindowStartupLocation="CenterScreen" Loaded="window_Loaded">
+        Title="LeetTranslator" Height="383.368" Width="674.754" WindowStartupLocation="CenterScreen" Loaded="WindowLoaded">
 
 
     <Window.CommandBindings>

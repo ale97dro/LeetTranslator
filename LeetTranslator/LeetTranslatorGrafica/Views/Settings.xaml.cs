@@ -31,12 +31,11 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void okBtn_Click(object sender, RoutedEventArgs e)
+        private void OkClick(object sender, RoutedEventArgs e)
         {
-            //Properties.Settings.Default.DarkTheme = (bool)darkThemeRadio.IsChecked;
             Properties.Settings.Default.Save();
 
-            this.Close();
+            CloseWindow();
         }
 
         /// <summary>
@@ -44,9 +43,9 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void cancelBtn_Click(object sender, RoutedEventArgs e)
+        private void CancelClick(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            CloseWindow();
         }
 
         /// <summary>
@@ -54,11 +53,8 @@ namespace LeetTranslatorGrafica.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void window_Loaded(object sender, RoutedEventArgs e)
+        private void WindowLoaded(object sender, RoutedEventArgs e)
         {
-            //lightThemeRadio.IsChecked = !Properties.Settings.Default.DarkTheme;
-            //darkThemeRadio.IsChecked = Properties.Settings.Default.DarkTheme;
-
             if (Properties.Settings.Default.DarkTheme)
                 SetDarkTheme();
             else
@@ -116,6 +112,11 @@ namespace LeetTranslatorGrafica.Views
             okBtn.Foreground = brush;
             cancelBtn.Foreground = brush;
             checkUpdateBtn.Foreground = brush;
+        }
+
+        private void CloseWindow()
+        {
+            this.Close();
         }
     }
 }
